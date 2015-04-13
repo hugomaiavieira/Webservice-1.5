@@ -4,6 +4,10 @@ title: Integração Webservice 1.5
 language_tabs:
   - xml: XML
 
+toc_footers:
+  - <a href='/Webservice-1.5-Processamento-em-lote/'>Processamento em lote</a>
+  - <a href='/Webservice-1.5-Pagamento-com-celular/'>Pagamento com celular</a>
+
 search: true
 ---
 
