@@ -48,6 +48,18 @@ html, body {
   width: 20px;
 }
 
+.languages {
+    padding: 0 15px 0 !important;
+    display: block;
+    height: 14px;
+    margin: -15px 0 15px 0;
+}
+
+    .languages li {display: block; float: left; width: 26px; height: 14px; padding: 0 !important; margin-left: 68px !important;}
+        .languages .english {background:url("../images/english.png") no-repeat top left;}
+        .languages .portuguese {background:url("../images/portuguese.png") no-repeat top left;}
+    .languages li a {overflow: hidden; text-indent: -1000px; display: block; width: 26px; height: 14px;}
+
 @mixin embossed-bg {
   @include background(
     linear-gradient(top,
