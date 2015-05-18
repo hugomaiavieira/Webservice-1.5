@@ -52,8 +52,10 @@ html, body {
     padding: 0 15px 0 !important;
     display: block;
     height: 14px;
-    margin: 15px 0 10px 0 !important;
+    margin: 15px 0 0 0 !important;
 }
+
+.languages:after {content: " "; display: block; width:1px;height:1px;clear:both}
 
     .languages li {display: block; float: left; width: 26px; height: 14px; padding: 0 !important;}
         .languages .english {background:url("../images/english.png") no-repeat top left;}
