@@ -45,7 +45,6 @@
         <ul class="toc-footer">
             <li><a href='/Webservice-1.5-FAQ'>Perguntas frequentes</a></li>
             <li><a href='/Webservice-1.5-Processamento-em-lote/'>Processamento em lote</a></li>
-            <li><a href='/Webservice-1.5-Pagamento-com-celular/'>Pagamento com celular</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -1608,7 +1607,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <ul>
 <li>O cancelamento total é válido tanto para transações capturadas, como autorizadas; o parcial é válido apenas para as capturadas.</li>
-<li>O prazo de cancelamento é de até 120 dias para a modalidade crédito e D+0 para débito.</li>
+<li>O prazo de cancelamento é de até 300 dias para a modalidade crédito e D+0 para débito.</li>
 <li>O cancelamento total, quando realizado com sucesso, altera o status da transação para “9 – Cancelada”, enquanto que o parcial não altera o status da transação, mantendo-a como “6 – Capturada”.</li>
 <li>Caso a TAG <code class="prettyprint">&lt;valor&gt;</code> não seja fornecida, o sistema assumirá um cancelamento total.</li>
 <li>Para bandeira AMEX está disponível apenas o cancelamento total.</li>
@@ -1730,6 +1729,13 @@ das transações que pararam após a execução deste processo. A mensagem para 
 <td>Não</td>
 <td>376449047333005</td>
 <td>05/2018</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>Diners</td>
+<td>Não</td>
+<td>36490102462661</td>
+<td>05/2017</td>
 <td>123</td>
 </tr>
 <tr>
