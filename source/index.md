@@ -1194,8 +1194,54 @@ Programa internacional da Mastercard para possibilitar a autenticação do compr
 ## ECI
 
 |Resultado da Autenticação|Visa|Mastercard|Aura|Demais|
+|-------------------------|----|----------|----|------|
 |Portador autenticado com sucesso.|5|2|n/d|n/d|
 |Portador não fez autenticação, pois o emissor não forneceu mecanismos de autenticação.|6|1|n/d|n/d|
 |Portador não se autenticou com sucesso, pois ocorreu um erro técnico inesperado.|7|1|n/d|n/d|
-|Portador não se autenticou com sucesso.|70|n/d|n/d|
+|Portador não se autenticou com sucesso.|7|0|n/d|n/d|
 |A loja optou por autorizar sem passar pela autenticação.|7|0|0|7|
+
+## Catálogo de Resposta de Erros
+
+Os erros que podem ser apresentados na mensagem XML, através da TAG <erro>, estão dispostos a seguir:
+
+|Código|Erro|Descrição|Ação|
+|------|----|---------|----|
+|001|Mensagem inválida|A mensagem XML está fora do formato especificado pelo arquivo ecommerce.xsd|Revisar as informações enviadas na mensagem XML frente às especificações|
+|002|Credenciais inválidas|Impossibilidade de autenticar uma requisição daloja virtual.|Verificar se o número de credenciamento e a chave estão corretos|
+|003|Transação inexistente|Não existe transação para o identificador informado|Rever a aplicação|
+|008|Código de Segurança Inválido|O código de segurança informado na mensagem é inválido.|Revisar as informações de cartão enviadas na mensagem XML|
+|010|Inconsistência no envio do cartão|A transação, com ou sem cartão, está divergente com a permissão de envio dessa informação|Rever se o cadastro da loja permite o envio do cartão ou não|
+|011|Modalidade não habilitada|A transação está configurada com uma modalidade de pagamento não habilitada para a loja|Rever a modalidade de pagamento solicitada|
+|012|Número de parcelas inválido|O número de parcelas solicitado ultrapassa o máximo permitido|Rever a forma de pagamento|
+|013|Flag de autorização automática|Flag de autorização automática incompatível com a inválida forma de pagamento solicitada|Rever as regras de utilização da flag <autorizar/>|
+|014|Autorização Direta inválida|A solicitação de Autorização Direta está inválida|Rever as regras de utilização da Autorização Direta|
+|015|Autorização Direta sem Cartão|A solicitação de Autorização Direta está sem cartão|Rever as regras de utilização da Autorização Direta|
+|016|Identificador, TID, inválido|O TID fornecido está duplicado|Rever a aplicação|
+|017|Código de segurança ausente|O código de segurança do cartão não foi enviado (essa informação é sempre obrigatória para Amex)|Rever a aplicação|
+|018|Indicador de código de segurança inconsistente|Uso incorreto do indicador de código de segurança|Revisar as informações de cartão enviadas na mensagem XML|
+|019|URL de Retorno não fornecida|A URL de Retorno é obrigatória, exceto para recorrência e autorização direta.|Revisar as informações enviadas na mensagem XML|
+|020|Status não permite autorização|Não é permitido realizar autorização para o status da transação|Rever as regras de autorização|
+|021|Prazo de autorização vencido|Não é permitido realizar autorização, pois o prazo está vencido|Rever as regras de autorização|
+|025|Encaminhamento a autorização não permitido|O resultado da Autenticação da transação não permite a solicitação de Autorização|Rever as regras de autorização|
+|030|Status inválido para captura|O status da transação não permite captura|Rever as regras de captura|
+|031|Prazo de captura vencido|A captura não pode ser realizada, pois o prazo para captura está vencido|Rever as regras de captura|
+|032|Valor de captura inválido|O valor solicitado para captura não é válido|Rever as regras de captura|
+|033|Falha ao capturar|Não foi possível realizar a captura|Realizar nova tentativa. Persistindo, entrar em contato com o Suporte E-commerce e informar o TID da transação.|
+|034|Valor da taxa de embarque obrigatório|O valor da taxa de embarque é obrigatório se a captura for parcial e a autorização tiver sido feita com taxa de embarque.|Envie novamente a requisição de captura com a tag <taxa-embarque>.|
+|035|Bandeira inválida para utilização da Taxa de Embarque|A bandeira utilizada na transação não tem suporte à taxa de embarque.|Remova a taxa de embarque ou utilize um cartão que suporte esta funcionalidade: Visa ou Mastercard.|
+|036|Produto inválido para utilização da Taxa de Embarque|O produto escolhido não tem suporte à taxa de embarque.|Altere o produto.|
+|040|Prazo de cancelamento vencido|O cancelamento não pode ser realizado, pois o prazo está vencido|Rever as regras de cancelamento.|
+|042|Falha ao cancelar|Não foi possível realizar o cancelamento|Realizar nova tentativa. Persistindo, entrar em contato com o Suporte E-commerce e informar o TID da transação.|
+|043|Valor de cancelamento é maior que valor autorizado.|O valor que está tentando cancelar supera o valor total capturado da transação.|Revisar o valor do cancelamento parcial, pois não pode ser maior que o valor capturado da transação.|
+|051|Recorrência Inválida|As configurações da transação não permitem que a transação recorrente seja efetuada com sucesso.|Verifique se escolheu “Crédito à vista”; Verifique se está enviando somente o token ou somente o cartão de crédito|
+|052|Token Inválido|O token fornecido na requisição de autorização não é válido ou está bloqueado.|Verifique se o Token está correto. Persistindo, entrar em contato com o Suporte.|
+|053|Recorrência não habilitada|O cadastro do lojista não permite o envio de transações recorrentes.|Entre em contato com suporte para saber como habilitar a recorrência no cadastro.|
+|054|Transação com Token inválida|As configurações da transação não permitem que a autorização direta com uso de Token seja efetuada com sucesso.|Verifique se escolheu “Crédito à vista”; Verifique se está enviando somente o token ou somente o cartão de crédito.|
+|055|Número do cartão não fornecido|Foi solicitado criação de Token, porém o número do cartão de crédito não foi fornecido.|Revisar as informações enviadas na mensagem XML frente às especificações|
+|056|Validade do cartão não fornecido|Foi solicitado criação de Token, porém a validade do cartão de crédito não foi fornecida.|Revisar as informações enviadas na mensagem XML frente às especificações.|
+|057|Erro inesperado gerando Token|Falha no sistema ocorrida no momento da geração do Token.|Tentar novamente. Persistindo, entrar em contato com o Suporte.|
+|061|Transação Recorrente Inválida|As configurações da transação recorrente estão inválidas.|Verifique se o produto é Crédito à vista, se o token ou o cartão foram enviados na mensagem.|
+|097|Sistema indisponível|Falha no sistema|Persistindo, entrar em contato com o Suporte.|
+|098|Timeout|A aplicação não respondeu dentro de 25 segundos|Persistindo, entrar em contato com o Suporte.|
+|099|Erro inesperado|Falha no sistema|Persistindo, entrar em contato com o Suporte e informar o TID da transação.|
