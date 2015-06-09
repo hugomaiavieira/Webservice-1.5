@@ -18,7 +18,7 @@ O objetivo desta documentação é orientar o desenvolvedor sobre como integrar 
 
 O mecanismo de integração com o Cielo E-commerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos XML, são necessários para implantar a solução Cielo E-commerce com sucesso.
 
-Para realizar testes no ambiente de homologação não há a necessidade de se credenciar na Cielo, porém para vender pela internet, é necessário se credenciar na Cielo no seguinte endereço: [https://www.cielo.com.br/sitecielo/E-commerce/credenciamento-ecommerce.html](https://www.cielo.com.br/sitecielo/E-commerce/credenciamento-ecommerce.html.).
+Para realizar testes no ambiente de homologação não há a necessidade de se credenciar na Cielo, porém para vender pela internet, é necessário se credenciar na Cielo no seguinte endereço: [https://www.cielo.com.br/sitecielo/e-commerce/credenciamento-ecommerce.html](https://www.cielo.com.br/sitecielo/e-commerce/credenciamento-ecommerce.html).
 
 Após a conclusão do credenciamento e recebimento das instruções é preciso desenvolver a integração utilizando como guia este manual. Assim que a integração estiver concluída, é necessário preencher completamente o formulário de homologação e enviá-lo para o Suporte Web do Cielo E-commerce que informará ao estabelecimento a chave de segurança.
 

@@ -13,7 +13,7 @@ The purpose of this documentation is to orientate the developer about how integr
 
 The integration mechanism with Cielo E-commerce is simple, so that are necessary only an intermediate knowledge in programming language for Web, HTTP/HTTP requisitions and handling XML archive to implant Cielo E-commerce solution with success.
 
-To carry out a test on homolagation it’s not necessary to log/register at Cielo, however to sell on internet it’s necessary to register on Cielo link: [https://www.cielo.com.br/sitecielo/E-commerce/credenciamento-ecommerce.html](https://www.cielo.com.br/sitecielo/E-commerce/credenciamento-ecommerce.html.).
+To carry out a test on homolagation it’s not necessary to log/register at Cielo, however to sell on internet it’s necessary to register on Cielo link: [https://www.cielo.com.br/sitecielo/e-commerce/credenciamento-ecommerce.html](https://www.cielo.com.br/sitecielo/e-commerce/credenciamento-ecommerce.html).
 
 After conclude the registration and receive the instructions, you need to develop the integration using this documentation as a guide. Once the integration is completed, it’s necessary to fill the homologation form fully and then send it to Cielo E-commerce Web Support that will inform the secure key to the establishment.
 
