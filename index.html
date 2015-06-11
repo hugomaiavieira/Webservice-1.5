@@ -704,7 +704,7 @@ inferior a R$5,00. Caso contrário a transação será negada.</aside>
 
 <p>Quando há autenticação, o fluxo de execução da autorização acaba sendo feito em duas etapas, conforme mostrado no diagrama abaixo:</p>
 
-<p>![fluxo-autenticacao](/images/fluxo-autenticacao.png]</p>
+<p><img alt="fluxo-autenticacao" src="images/fluxo-autenticacao.png" /></p>
 
 <ol>
 <li>fecharPedido() – acontece quando o portador do cartão finaliza o pedido e dá início ao pagamento da compra
@@ -850,6 +850,544 @@ passarão pelo status “Autenticada” ou “Não autenticada”. Por consequê
 <p>O campo ECI (Eletronic Commerce Indicator) representa o quão segura é uma transação. Esse valor deve ser levado em consideração pelo lojista para decidir sobre a captura da transação.</p>
 
 <aside class="warning">O indicador ECI é muito importante, pois é ele que determina as regras de Chargeback.</aside>
+
+<h1 id="catálogo-de-códigos-de-resposta">Catálogo de códigos de resposta</h1>
+
+<h2 id="códigos-de-autorização-lr">Códigos de Autorização LR</h2>
+
+<p>A seguir estão os códigos de resposta que respondem por 99% dos retornos gerados no processo de autorização. Os demais códigos existentes não estão listados pois ocorrem raramente ou em casos específicos. Para estes casos deve-se assumir que eles não são passíveis de retentativa.</p>
+
+<p>Caso tenha uma quantidade elevada de códigos de retorno que não está listado abaixo, entre em contato com o Suporte Web Cielo E-commerce.</p>
+
+<aside class="warning">As descrições abaixo são exclusivas para uso interno do estabelecimento comercial e não devem ser divulgadas para o portador do cartão.</aside>
+
+<aside class="notice">Exceto os códigos AA, AC e GA, todos os outros são gerados pelos emissores/bandeiras.</aside>
+
+<table><thead>
+<tr>
+<th>Código Resposta LR</th>
+<th>Definição</th>
+<th>Significado</th>
+<th>Ação</th>
+<th>Permite Retentativa</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>00</td>
+<td>Transação autorizada</td>
+<td>Transação nacional aprovada com sucesso</td>
+<td></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>01</td>
+<td>Transação referida pelo banco emissor</td>
+<td>Referida pelo banco emissor</td>
+<td>Oriente o portador a contatar o banco emissor do cartão</td>
+<td>NÃO</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Transação não autorizada</td>
+<td>Existe algum tipo de restrição no cartão</td>
+<td>Oriente o portador a refazer a transação</td>
+<td>SIM</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Transação não autorizada</td>
+<td>Existe algum tipo de restrição no cartão</td>
+<td>Oriente o portador a contatar o banco emissor do cartão</td>
+<td>SIM</td>
+</tr>
+<tr>
+<td>06</td>
+<td>Tente novamente</td>
+<td>Falha na autorização</td>
+<td>Oriente o portador a refazer a transação</td>
+<td>SIM</td>
+</tr>
+<tr>
+<td>07</td>
+<td>Cartão com restrição</td>
+<td>Existe algum tipo de restrição no cartão</td>
+<td>Oriente o portador a contatar o banco emissor do cartão</td>
+<td>NÃO</td>
+</tr>
+<tr>
+<td>08</td>
+<td>Código de segurança inválido</td>
+<td>Código de segurança incorreto</td>
+<td>Oriente o portador a refazer a transação digitando o código de segurança corretamente</td>
+<td>NÃO</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Transação autorizada</td>
+<td>Transação internacional aprovada com sucesso</td>
+<td></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Valor inválido</td>
+<td>Valor inválido</td>
+<td>Oriente o portador a refazer a transação digitando o valor correto</td>
+<td>NÃO</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Cartão inválido</td>
+<td>Digitação incorreta do número do cartão</td>
+<td>Oriente o portador a verificar o número do cartão e digitar novamente</td>
+<td>NÃO</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Banco emissor indisponível</td>
+<td>Banco emissor indisponível</td>
+<td>Oriente o portador a aguardar alguns instantes e tentar novamente</td>
+<td>SIM</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Cancelamento não efetuado</td>
+<td>Cancelamento não localizado no banco emissor</td>
+<td>O estabelecimento deve entrar em contato com a Central de Relacionamento Cielo</td>
+<td>NÃO</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Cartão com restrição</td>
+<td>Existe algum tipo de restrição no cartão</td>
+<td>Oriente o portador a contatar o banco emissor do cartão</td>
+<td>NÃO</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Saldo insuficiente</td>
+<td>Saldo insuficiente</td>
+<td>Oriente o portador a contatar o banco emissor do cartão</td>
+<td>SIM</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Cartão vencido</td>
+<td>Cartão vencido</td>
+<td>Oriente o portador a verificar o vencimento do cartão e digitar novamente</td>
+<td>NÃO</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Transação não permitida</td>
+<td>Existe algum tipo de restrição no cartão</td>
+<td>Oriente o portador a contatar o banco emissor do cartão</td>
+<td>SIM</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Transação não autorizada</td>
+<td>Existe algum tipo de restrição no cartão</td>
+<td>Oriente o portador a contatar o banco emissor do cartão</td>
+<td>NÃO</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Transação não autorizada</td>
+<td>Existe algum tipo de restrição no cartão</td>
+<td>Oriente o portador a contatar o banco emissor do cartão</td>
+<td>NÃO</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Cartão não foi desbloqueado pelo portador</td>
+<td>Cartão não foi desbloqueado pelo portador</td>
+<td>Oriente o portador a desbloquear o cartão junto ao emissor do cartão</td>
+<td>SIM</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Erro no cartão</td>
+<td>Cartão inválido</td>
+<td>Oriente o portador a verificar o número do cartão e digitar novamente</td>
+<td>SIM</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Banco fora do ar</td>
+<td>Banco emissor indisponível</td>
+<td>Oriente o portador a aguardar alguns instantes e tentar novamente</td>
+<td>SIM</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Tente novamente</td>
+<td>Falha no envio da autorização</td>
+<td>Oriente o portador a aguardar alguns instantes e tentar novamente</td>
+<td>SIM</td>
+</tr>
+<tr>
+<td>AA</td>
+<td>Tempo excedido</td>
+<td>Timeout na comunicação com o banco emissor</td>
+<td>Oriente o portador a aguardar alguns instantes e tentar novamente</td>
+<td>SIM</td>
+</tr>
+<tr>
+<td>AC</td>
+<td>Use função débito</td>
+<td>Cartão de débito tentando utilizar produto crédito</td>
+<td>Oriente o portador a utilizar o cartão de débito (Visa ou MasterCard)</td>
+<td>NÃO</td>
+</tr>
+<tr>
+<td>GA</td>
+<td>Transação referida pela Cielo</td>
+<td>Referida pela Cielo</td>
+<td>Oriente o portador a aguardar alguns instantes e tentar novamente</td>
+<td>SIM</td>
+</tr>
+</tbody></table>
+
+<h2 id="códigos-de-erros">Códigos de Erros</h2>
+
+<p>Os erros que podem ser apresentados na mensagem XML, através da TAG <code class="prettyprint">&lt;erro&gt;</code>, estão dispostos a seguir:</p>
+
+<table><thead>
+<tr>
+<th>Código</th>
+<th>Erro</th>
+<th>Descrição</th>
+<th>Ação</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>001</td>
+<td>Mensagem inválida</td>
+<td>A mensagem XML está fora do formato especificado pelo arquivo ecommerce.xsd</td>
+<td>Revisar as informações enviadas na mensagem XML frente às especificações</td>
+</tr>
+<tr>
+<td>002</td>
+<td>Credenciais inválidas</td>
+<td>Impossibilidade de autenticar uma requisição daloja virtual.</td>
+<td>Verificar se o número de credenciamento e a chave estão corretos</td>
+</tr>
+<tr>
+<td>003</td>
+<td>Transação inexistente</td>
+<td>Não existe transação para o identificador informado</td>
+<td>Rever a aplicação</td>
+</tr>
+<tr>
+<td>008</td>
+<td>Código de Segurança Inválido</td>
+<td>O código de segurança informado na mensagem é inválido.</td>
+<td>Revisar as informações de cartão enviadas na mensagem XML</td>
+</tr>
+<tr>
+<td>010</td>
+<td>Inconsistência no envio do cartão</td>
+<td>A transação, com ou sem cartão, está divergente com a permissão de envio dessa informação</td>
+<td>Rever se o cadastro da loja permite o envio do cartão ou não</td>
+</tr>
+<tr>
+<td>011</td>
+<td>Modalidade não habilitada</td>
+<td>A transação está configurada com uma modalidade de pagamento não habilitada para a loja</td>
+<td>Rever a modalidade de pagamento solicitada</td>
+</tr>
+<tr>
+<td>012</td>
+<td>Número de parcelas inválido</td>
+<td>O número de parcelas solicitado ultrapassa o máximo permitido</td>
+<td>Rever a forma de pagamento</td>
+</tr>
+<tr>
+<td>013</td>
+<td>Flag de autorização automática</td>
+<td>Flag de autorização automática incompatível com a inválida forma de pagamento solicitada</td>
+<td>Rever as regras de utilização da flag <autorizar/></td>
+</tr>
+<tr>
+<td>014</td>
+<td>Autorização Direta inválida</td>
+<td>A solicitação de Autorização Direta está inválida</td>
+<td>Rever as regras de utilização da Autorização Direta</td>
+</tr>
+<tr>
+<td>015</td>
+<td>Autorização Direta sem Cartão</td>
+<td>A solicitação de Autorização Direta está sem cartão</td>
+<td>Rever as regras de utilização da Autorização Direta</td>
+</tr>
+<tr>
+<td>016</td>
+<td>Identificador, TID, inválido</td>
+<td>O TID fornecido está duplicado</td>
+<td>Rever a aplicação</td>
+</tr>
+<tr>
+<td>017</td>
+<td>Código de segurança ausente</td>
+<td>O código de segurança do cartão não foi enviado (essa informação é sempre obrigatória para Amex)</td>
+<td>Rever a aplicação</td>
+</tr>
+<tr>
+<td>018</td>
+<td>Indicador de código de segurança inconsistente</td>
+<td>Uso incorreto do indicador de código de segurança</td>
+<td>Revisar as informações de cartão enviadas na mensagem XML</td>
+</tr>
+<tr>
+<td>019</td>
+<td>URL de Retorno não fornecida</td>
+<td>A URL de Retorno é obrigatória, exceto para recorrência e autorização direta.</td>
+<td>Revisar as informações enviadas na mensagem XML</td>
+</tr>
+<tr>
+<td>020</td>
+<td>Status não permite autorização</td>
+<td>Não é permitido realizar autorização para o status da transação</td>
+<td>Rever as regras de autorização</td>
+</tr>
+<tr>
+<td>021</td>
+<td>Prazo de autorização vencido</td>
+<td>Não é permitido realizar autorização, pois o prazo está vencido</td>
+<td>Rever as regras de autorização</td>
+</tr>
+<tr>
+<td>025</td>
+<td>Encaminhamento a autorização não permitido</td>
+<td>O resultado da Autenticação da transação não permite a solicitação de Autorização</td>
+<td>Rever as regras de autorização</td>
+</tr>
+<tr>
+<td>030</td>
+<td>Status inválido para captura</td>
+<td>O status da transação não permite captura</td>
+<td>Rever as regras de captura</td>
+</tr>
+<tr>
+<td>031</td>
+<td>Prazo de captura vencido</td>
+<td>A captura não pode ser realizada, pois o prazo para captura está vencido</td>
+<td>Rever as regras de captura</td>
+</tr>
+<tr>
+<td>032</td>
+<td>Valor de captura inválido</td>
+<td>O valor solicitado para captura não é válido</td>
+<td>Rever as regras de captura</td>
+</tr>
+<tr>
+<td>033</td>
+<td>Falha ao capturar</td>
+<td>Não foi possível realizar a captura</td>
+<td>Realizar nova tentativa. Persistindo, entrar em contato com o Suporte E-commerce e informar o TID da transação.</td>
+</tr>
+<tr>
+<td>034</td>
+<td>Valor da taxa de embarque obrigatório</td>
+<td>O valor da taxa de embarque é obrigatório se a captura for parcial e a autorização tiver sido feita com taxa de embarque.</td>
+<td>Envie novamente a requisição de captura com a tag <taxa-embarque>.</td>
+</tr>
+<tr>
+<td>035</td>
+<td>Bandeira inválida para utilização da Taxa de Embarque</td>
+<td>A bandeira utilizada na transação não tem suporte à taxa de embarque.</td>
+<td>Remova a taxa de embarque ou utilize um cartão que suporte esta funcionalidade: Visa ou Mastercard.</td>
+</tr>
+<tr>
+<td>036</td>
+<td>Produto inválido para utilização da Taxa de Embarque</td>
+<td>O produto escolhido não tem suporte à taxa de embarque.</td>
+<td>Altere o produto.</td>
+</tr>
+<tr>
+<td>040</td>
+<td>Prazo de cancelamento vencido</td>
+<td>O cancelamento não pode ser realizado, pois o prazo está vencido</td>
+<td>Rever as regras de cancelamento.</td>
+</tr>
+<tr>
+<td>042</td>
+<td>Falha ao cancelar</td>
+<td>Não foi possível realizar o cancelamento</td>
+<td>Realizar nova tentativa. Persistindo, entrar em contato com o Suporte E-commerce e informar o TID da transação.</td>
+</tr>
+<tr>
+<td>043</td>
+<td>Valor de cancelamento é maior que valor autorizado.</td>
+<td>O valor que está tentando cancelar supera o valor total capturado da transação.</td>
+<td>Revisar o valor do cancelamento parcial, pois não pode ser maior que o valor capturado da transação.</td>
+</tr>
+<tr>
+<td>051</td>
+<td>Recorrência Inválida</td>
+<td>As configurações da transação não permitem que a transação recorrente seja efetuada com sucesso.</td>
+<td>Verifique se escolheu “Crédito à vista”; Verifique se está enviando somente o token ou somente o cartão de crédito</td>
+</tr>
+<tr>
+<td>052</td>
+<td>Token Inválido</td>
+<td>O token fornecido na requisição de autorização não é válido ou está bloqueado.</td>
+<td>Verifique se o Token está correto. Persistindo, entrar em contato com o Suporte.</td>
+</tr>
+<tr>
+<td>053</td>
+<td>Recorrência não habilitada</td>
+<td>O cadastro do lojista não permite o envio de transações recorrentes.</td>
+<td>Entre em contato com suporte para saber como habilitar a recorrência no cadastro.</td>
+</tr>
+<tr>
+<td>054</td>
+<td>Transação com Token inválida</td>
+<td>As configurações da transação não permitem que a autorização direta com uso de Token seja efetuada com sucesso.</td>
+<td>Verifique se escolheu “Crédito à vista”; Verifique se está enviando somente o token ou somente o cartão de crédito.</td>
+</tr>
+<tr>
+<td>055</td>
+<td>Número do cartão não fornecido</td>
+<td>Foi solicitado criação de Token, porém o número do cartão de crédito não foi fornecido.</td>
+<td>Revisar as informações enviadas na mensagem XML frente às especificações</td>
+</tr>
+<tr>
+<td>056</td>
+<td>Validade do cartão não fornecido</td>
+<td>Foi solicitado criação de Token, porém a validade do cartão de crédito não foi fornecida.</td>
+<td>Revisar as informações enviadas na mensagem XML frente às especificações.</td>
+</tr>
+<tr>
+<td>057</td>
+<td>Erro inesperado gerando Token</td>
+<td>Falha no sistema ocorrida no momento da geração do Token.</td>
+<td>Tentar novamente. Persistindo, entrar em contato com o Suporte.</td>
+</tr>
+<tr>
+<td>061</td>
+<td>Transação Recorrente Inválida</td>
+<td>As configurações da transação recorrente estão inválidas.</td>
+<td>Verifique se o produto é Crédito à vista, se o token ou o cartão foram enviados na mensagem.</td>
+</tr>
+<tr>
+<td>097</td>
+<td>Sistema indisponível</td>
+<td>Falha no sistema</td>
+<td>Persistindo, entrar em contato com o Suporte.</td>
+</tr>
+<tr>
+<td>098</td>
+<td>Timeout</td>
+<td>A aplicação não respondeu dentro de 25 segundos</td>
+<td>Persistindo, entrar em contato com o Suporte.</td>
+</tr>
+<tr>
+<td>099</td>
+<td>Erro inesperado</td>
+<td>Falha no sistema</td>
+<td>Persistindo, entrar em contato com o Suporte e informar o TID da transação.</td>
+</tr>
+</tbody></table>
+
+<h2 id="status-das-transações">Status das transações</h2>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Código</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Transação Criada</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Transação em Andamento</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Transação Autenticada</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Transação não Autenticada</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Transação Autorizada</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Transação não Autorizada</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Transação Capturada</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Transação Cancelada</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Transação em Autenticação</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Transação em Cancelamento</td>
+<td>12</td>
+</tr>
+</tbody></table>
+
+<h2 id="eci">ECI</h2>
+
+<table><thead>
+<tr>
+<th>Resultado da Autenticação</th>
+<th>Visa</th>
+<th>Mastercard</th>
+<th>Aura</th>
+<th>Demais</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Portador autenticado com sucesso.</td>
+<td>5</td>
+<td>2</td>
+<td>n/d</td>
+<td>n/d</td>
+</tr>
+<tr>
+<td>Portador não fez autenticação, pois o emissor não forneceu mecanismos de autenticação.</td>
+<td>6</td>
+<td>1</td>
+<td>n/d</td>
+<td>n/d</td>
+</tr>
+<tr>
+<td>Portador não se autenticou com sucesso, pois ocorreu um erro técnico inesperado.</td>
+<td>7</td>
+<td>1</td>
+<td>n/d</td>
+<td>n/d</td>
+</tr>
+<tr>
+<td>Portador não se autenticou com sucesso.</td>
+<td>7</td>
+<td>0</td>
+<td>n/d</td>
+<td>n/d</td>
+</tr>
+<tr>
+<td>A loja optou por autorizar sem passar pela autenticação.</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>7</td>
+</tr>
+</tbody></table>
 
 <h1 id="operações-e-configurações">Operações e configurações</h1>
 
@@ -1871,348 +2409,6 @@ seguintes informações, que irão completar o cadastro:
 <p>Programa <strong>Secure Code</strong> (Mastercard)</p>
 
 <p>Programa internacional da Mastercard para possibilitar a autenticação do comprador no momento de uma compra em ambiente E-commerce. Visite <a href="http://www.mastercard.com/securecode">http://www.mastercard.com/securecode</a> para maiores informações.</p>
-
-<h1 id="apêndice">Apêndice</h1>
-
-<h2 id="status-das-transações">Status das transações</h2>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Código</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Transação Criada</td>
-<td>0</td>
-</tr>
-<tr>
-<td>Transação em Andamento</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Transação Autenticada</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Transação não Autenticada</td>
-<td>3</td>
-</tr>
-<tr>
-<td>Transação Autorizada</td>
-<td>4</td>
-</tr>
-<tr>
-<td>Transação não Autorizada</td>
-<td>5</td>
-</tr>
-<tr>
-<td>Transação Capturada</td>
-<td>6</td>
-</tr>
-<tr>
-<td>Transação Cancelada</td>
-<td>9</td>
-</tr>
-<tr>
-<td>Transação em Autenticação</td>
-<td>10</td>
-</tr>
-<tr>
-<td>Transação em Cancelamento</td>
-<td>12</td>
-</tr>
-</tbody></table>
-
-<h2 id="eci">ECI</h2>
-
-<table><thead>
-<tr>
-<th>Resultado da Autenticação</th>
-<th>Visa</th>
-<th>Mastercard</th>
-<th>Aura</th>
-<th>Demais</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Portador autenticado com sucesso.</td>
-<td>5</td>
-<td>2</td>
-<td>n/d</td>
-<td>n/d</td>
-</tr>
-<tr>
-<td>Portador não fez autenticação, pois o emissor não forneceu mecanismos de autenticação.</td>
-<td>6</td>
-<td>1</td>
-<td>n/d</td>
-<td>n/d</td>
-</tr>
-<tr>
-<td>Portador não se autenticou com sucesso, pois ocorreu um erro técnico inesperado.</td>
-<td>7</td>
-<td>1</td>
-<td>n/d</td>
-<td>n/d</td>
-</tr>
-<tr>
-<td>Portador não se autenticou com sucesso.</td>
-<td>7</td>
-<td>0</td>
-<td>n/d</td>
-<td>n/d</td>
-</tr>
-<tr>
-<td>A loja optou por autorizar sem passar pela autenticação.</td>
-<td>7</td>
-<td>0</td>
-<td>0</td>
-<td>7</td>
-</tr>
-</tbody></table>
-
-<h2 id="catálogo-de-resposta-de-erros">Catálogo de Resposta de Erros</h2>
-
-<p>Os erros que podem ser apresentados na mensagem XML, através da TAG <erro>, estão dispostos a seguir:</p>
-
-<table><thead>
-<tr>
-<th>Código</th>
-<th>Erro</th>
-<th>Descrição</th>
-<th>Ação</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>001</td>
-<td>Mensagem inválida</td>
-<td>A mensagem XML está fora do formato especificado pelo arquivo ecommerce.xsd</td>
-<td>Revisar as informações enviadas na mensagem XML frente às especificações</td>
-</tr>
-<tr>
-<td>002</td>
-<td>Credenciais inválidas</td>
-<td>Impossibilidade de autenticar uma requisição daloja virtual.</td>
-<td>Verificar se o número de credenciamento e a chave estão corretos</td>
-</tr>
-<tr>
-<td>003</td>
-<td>Transação inexistente</td>
-<td>Não existe transação para o identificador informado</td>
-<td>Rever a aplicação</td>
-</tr>
-<tr>
-<td>008</td>
-<td>Código de Segurança Inválido</td>
-<td>O código de segurança informado na mensagem é inválido.</td>
-<td>Revisar as informações de cartão enviadas na mensagem XML</td>
-</tr>
-<tr>
-<td>010</td>
-<td>Inconsistência no envio do cartão</td>
-<td>A transação, com ou sem cartão, está divergente com a permissão de envio dessa informação</td>
-<td>Rever se o cadastro da loja permite o envio do cartão ou não</td>
-</tr>
-<tr>
-<td>011</td>
-<td>Modalidade não habilitada</td>
-<td>A transação está configurada com uma modalidade de pagamento não habilitada para a loja</td>
-<td>Rever a modalidade de pagamento solicitada</td>
-</tr>
-<tr>
-<td>012</td>
-<td>Número de parcelas inválido</td>
-<td>O número de parcelas solicitado ultrapassa o máximo permitido</td>
-<td>Rever a forma de pagamento</td>
-</tr>
-<tr>
-<td>013</td>
-<td>Flag de autorização automática</td>
-<td>Flag de autorização automática incompatível com a inválida forma de pagamento solicitada</td>
-<td>Rever as regras de utilização da flag <autorizar/></td>
-</tr>
-<tr>
-<td>014</td>
-<td>Autorização Direta inválida</td>
-<td>A solicitação de Autorização Direta está inválida</td>
-<td>Rever as regras de utilização da Autorização Direta</td>
-</tr>
-<tr>
-<td>015</td>
-<td>Autorização Direta sem Cartão</td>
-<td>A solicitação de Autorização Direta está sem cartão</td>
-<td>Rever as regras de utilização da Autorização Direta</td>
-</tr>
-<tr>
-<td>016</td>
-<td>Identificador, TID, inválido</td>
-<td>O TID fornecido está duplicado</td>
-<td>Rever a aplicação</td>
-</tr>
-<tr>
-<td>017</td>
-<td>Código de segurança ausente</td>
-<td>O código de segurança do cartão não foi enviado (essa informação é sempre obrigatória para Amex)</td>
-<td>Rever a aplicação</td>
-</tr>
-<tr>
-<td>018</td>
-<td>Indicador de código de segurança inconsistente</td>
-<td>Uso incorreto do indicador de código de segurança</td>
-<td>Revisar as informações de cartão enviadas na mensagem XML</td>
-</tr>
-<tr>
-<td>019</td>
-<td>URL de Retorno não fornecida</td>
-<td>A URL de Retorno é obrigatória, exceto para recorrência e autorização direta.</td>
-<td>Revisar as informações enviadas na mensagem XML</td>
-</tr>
-<tr>
-<td>020</td>
-<td>Status não permite autorização</td>
-<td>Não é permitido realizar autorização para o status da transação</td>
-<td>Rever as regras de autorização</td>
-</tr>
-<tr>
-<td>021</td>
-<td>Prazo de autorização vencido</td>
-<td>Não é permitido realizar autorização, pois o prazo está vencido</td>
-<td>Rever as regras de autorização</td>
-</tr>
-<tr>
-<td>025</td>
-<td>Encaminhamento a autorização não permitido</td>
-<td>O resultado da Autenticação da transação não permite a solicitação de Autorização</td>
-<td>Rever as regras de autorização</td>
-</tr>
-<tr>
-<td>030</td>
-<td>Status inválido para captura</td>
-<td>O status da transação não permite captura</td>
-<td>Rever as regras de captura</td>
-</tr>
-<tr>
-<td>031</td>
-<td>Prazo de captura vencido</td>
-<td>A captura não pode ser realizada, pois o prazo para captura está vencido</td>
-<td>Rever as regras de captura</td>
-</tr>
-<tr>
-<td>032</td>
-<td>Valor de captura inválido</td>
-<td>O valor solicitado para captura não é válido</td>
-<td>Rever as regras de captura</td>
-</tr>
-<tr>
-<td>033</td>
-<td>Falha ao capturar</td>
-<td>Não foi possível realizar a captura</td>
-<td>Realizar nova tentativa. Persistindo, entrar em contato com o Suporte E-commerce e informar o TID da transação.</td>
-</tr>
-<tr>
-<td>034</td>
-<td>Valor da taxa de embarque obrigatório</td>
-<td>O valor da taxa de embarque é obrigatório se a captura for parcial e a autorização tiver sido feita com taxa de embarque.</td>
-<td>Envie novamente a requisição de captura com a tag <taxa-embarque>.</td>
-</tr>
-<tr>
-<td>035</td>
-<td>Bandeira inválida para utilização da Taxa de Embarque</td>
-<td>A bandeira utilizada na transação não tem suporte à taxa de embarque.</td>
-<td>Remova a taxa de embarque ou utilize um cartão que suporte esta funcionalidade: Visa ou Mastercard.</td>
-</tr>
-<tr>
-<td>036</td>
-<td>Produto inválido para utilização da Taxa de Embarque</td>
-<td>O produto escolhido não tem suporte à taxa de embarque.</td>
-<td>Altere o produto.</td>
-</tr>
-<tr>
-<td>040</td>
-<td>Prazo de cancelamento vencido</td>
-<td>O cancelamento não pode ser realizado, pois o prazo está vencido</td>
-<td>Rever as regras de cancelamento.</td>
-</tr>
-<tr>
-<td>042</td>
-<td>Falha ao cancelar</td>
-<td>Não foi possível realizar o cancelamento</td>
-<td>Realizar nova tentativa. Persistindo, entrar em contato com o Suporte E-commerce e informar o TID da transação.</td>
-</tr>
-<tr>
-<td>043</td>
-<td>Valor de cancelamento é maior que valor autorizado.</td>
-<td>O valor que está tentando cancelar supera o valor total capturado da transação.</td>
-<td>Revisar o valor do cancelamento parcial, pois não pode ser maior que o valor capturado da transação.</td>
-</tr>
-<tr>
-<td>051</td>
-<td>Recorrência Inválida</td>
-<td>As configurações da transação não permitem que a transação recorrente seja efetuada com sucesso.</td>
-<td>Verifique se escolheu “Crédito à vista”; Verifique se está enviando somente o token ou somente o cartão de crédito</td>
-</tr>
-<tr>
-<td>052</td>
-<td>Token Inválido</td>
-<td>O token fornecido na requisição de autorização não é válido ou está bloqueado.</td>
-<td>Verifique se o Token está correto. Persistindo, entrar em contato com o Suporte.</td>
-</tr>
-<tr>
-<td>053</td>
-<td>Recorrência não habilitada</td>
-<td>O cadastro do lojista não permite o envio de transações recorrentes.</td>
-<td>Entre em contato com suporte para saber como habilitar a recorrência no cadastro.</td>
-</tr>
-<tr>
-<td>054</td>
-<td>Transação com Token inválida</td>
-<td>As configurações da transação não permitem que a autorização direta com uso de Token seja efetuada com sucesso.</td>
-<td>Verifique se escolheu “Crédito à vista”; Verifique se está enviando somente o token ou somente o cartão de crédito.</td>
-</tr>
-<tr>
-<td>055</td>
-<td>Número do cartão não fornecido</td>
-<td>Foi solicitado criação de Token, porém o número do cartão de crédito não foi fornecido.</td>
-<td>Revisar as informações enviadas na mensagem XML frente às especificações</td>
-</tr>
-<tr>
-<td>056</td>
-<td>Validade do cartão não fornecido</td>
-<td>Foi solicitado criação de Token, porém a validade do cartão de crédito não foi fornecida.</td>
-<td>Revisar as informações enviadas na mensagem XML frente às especificações.</td>
-</tr>
-<tr>
-<td>057</td>
-<td>Erro inesperado gerando Token</td>
-<td>Falha no sistema ocorrida no momento da geração do Token.</td>
-<td>Tentar novamente. Persistindo, entrar em contato com o Suporte.</td>
-</tr>
-<tr>
-<td>061</td>
-<td>Transação Recorrente Inválida</td>
-<td>As configurações da transação recorrente estão inválidas.</td>
-<td>Verifique se o produto é Crédito à vista, se o token ou o cartão foram enviados na mensagem.</td>
-</tr>
-<tr>
-<td>097</td>
-<td>Sistema indisponível</td>
-<td>Falha no sistema</td>
-<td>Persistindo, entrar em contato com o Suporte.</td>
-</tr>
-<tr>
-<td>098</td>
-<td>Timeout</td>
-<td>A aplicação não respondeu dentro de 25 segundos</td>
-<td>Persistindo, entrar em contato com o Suporte.</td>
-</tr>
-<tr>
-<td>099</td>
-<td>Erro inesperado</td>
-<td>Falha no sistema</td>
-<td>Persistindo, entrar em contato com o Suporte e informar o TID da transação.</td>
-</tr>
-</tbody></table>
 
       </div>
       <div class="dark-box">
