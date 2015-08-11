@@ -138,7 +138,7 @@ A partir da criação de uma transação, ela pode assumir os seguintes status:
 
 As transições de status podem ser realizadas através da troca de mensagens entre a loja e a Cielo, ou de forma automática, por exemplo, quando o prazo para a captura de transação autorizada expirar.
 
-# Criando transações 
+# Criando transações
 
 Todas as transações no Cielo E-commerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML `<requisicao-transacao>`, cujo conjunto de TAGS determinam as configurações de uma transação.
 
@@ -190,6 +190,8 @@ Todas as transações no Cielo E-commerce iniciam-se através de um POST (HTTPS)
   </avs>
 </requisicao-transacao>
 ```
+
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
 ### raiz
 
@@ -284,23 +286,40 @@ O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo 
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="6-e7762cbf8856">
-  <tid>10017348980735271001</tid>
-  <dados-pedido>
-    <numero>1130006436</numero>
-    <valor>1000</valor>
-    <moeda>986</moeda>
-    <data-hora>2011-12-05T16:01:28.655-02:00</data-hora>
-    <descricao>[origem:10.50.54.156]</descricao>
-    <idioma>PT</idioma>
-  </dados-pedido>
-  <forma-pagamento>
-    <bandeira>visa</bandeira>
-    <produto>1</produto>
-    <parcelas>1</parcelas>
-  </forma-pagamento>
-  <status>0</status>
-  <url-autenticacao>https://ecommerce.cielo.com.br/web/index.cbmp?id=a783251</url-autenticacao>
+<transacao versao="1.3.0" id="af32f93c-5e9c-4f44-9478-ccc5aca9319e" xmlns="http://ecommerce.cbmp.com.br">
+    <tid>100699306908642F1001</tid>
+    <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
+    <dados-pedido>
+        <numero>2132385784</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2013-02-18T16:51:30.852-03:00</data-hora>
+        <descricao>[origem:0:0:0:0:0:0:0:1]</descricao>
+        <idioma>PT</idioma>
+        <taxa-embarque>0</taxa-embarque>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <status>4</status>
+    <autenticacao>
+        <codigo>4</codigo>
+        <mensagem>Transacao sem autenticacao</mensagem>
+        <data-hora>2013-02-18T16:51:31.158-03:00</data-hora>
+        <valor>1000</valor>
+        <eci>7</eci>
+    </autenticacao>
+    <autorizacao>
+        <codigo>4</codigo>
+        <mensagem>Transação autorizada</mensagem>
+        <data-hora>2013-02-18T16:51:31.460-03:00</data-hora>
+        <valor>1000</valor>
+        <lr>00</lr>
+        <arp>123456</arp>
+        <nsu>549935</nsu>
+    </autorizacao>
 </transacao>
 ```
 
@@ -374,7 +393,7 @@ Os pré-requisitos para que uma transação seja autenticada estão relacionados
 
 * Banco e Bandeira devem ser participantes do programa de autenticação;
 * O BIN do cartão deve ser participante do programa de autenticação;
-* A configuração da <requisicao-transacao>//<autorizar> deve ser 0, 1 ou 2. 
+* A configuração da <requisicao-transacao>//<autorizar> deve ser 0, 1 ou 2.
 
 
 Quando há autenticação, o fluxo de execução da autorização acaba sendo feito em duas etapas, conforme mostrado no diagrama abaixo:
@@ -403,31 +422,46 @@ Observando o diagrama da seção [Transação](#transação), é possível obser
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="add7d51e-f7a1-41b1-b224-4ffbd724730c">
-  <tid>1001734898073E931001</tid>
-  <pan>IqVz7P9zaIgTYdU41HaW/OB/d7Idwttqwb2vaTt8MT0=</pan>
-  <dados-pedido>
-    <numero>1196683550</numero>
-    <valor>1000</valor>
-    <moeda>986</moeda>
-    <data-hora>2011-12-08T10:44:24.244-02:00</data-hora>
-    <descricao>[origem:10.50.54.156]</descricao>
-    <idioma>PT</idioma>
-    <taxa-embarque>1000</taxa-embarque>
-  </dados-pedido>
-  <forma-pagamento>
-    <bandeira>visa</bandeira>
-    <produto>1</produto>
-    <parcelas>1</parcelas>
-  </forma-pagamento>
-  <status>2</status>
-  <autenticacao>
-    <codigo>2</codigo>
-    <mensagem>Autenticada com sucesso</mensagem>
-    <data-hora>2011-12-08T10:44:47.311-02:00</data-hora>
-    <valor>1000</valor>
-    <eci>5</eci>
-  </autenticacao>
+<transacao versao="1.3.0" id="5e445904-963e-4fa1-95cd-55ef88c289cc" xmlns="http://ecommerce.cbmp.com.br">
+    <tid>10069930690864281001</tid>
+    <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
+    <dados-pedido>
+        <numero>1739114311</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2013-02-18T15:06:27.523-03:00</data-hora>
+        <descricao>[origem:172.16.34.66]</descricao>
+        <idioma>PT</idioma>
+        <taxa-embarque>0</taxa-embarque>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <status>6</status>
+    <autenticacao>
+        <codigo>6</codigo>
+        <mensagem>Transacao sem autenticacao</mensagem>
+        <data-hora>2013-02-18T15:06:28.013-03:00</data-hora>
+        <valor>1000</valor>
+        <eci>7</eci>
+    </autenticacao>
+    <autorizacao>
+        <codigo>6</codigo>
+        <mensagem>Transação autorizada</mensagem>
+        <data-hora>2013-02-18T15:06:28.807-03:00</data-hora>
+        <valor>1000</valor>
+        <lr>00</lr>
+        <arp>123456</arp>
+        <nsu>549928</nsu>
+    </autorizacao>
+    <captura>
+        <codigo>6</codigo>
+        <mensagem>Transacao capturada com sucesso</mensagem>
+        <data-hora>2013-02-18T15:08:23.031-03:00</data-hora>
+        <valor>1000</valor>
+    </captura>
 </transacao>
 ```
 
@@ -574,6 +608,8 @@ A requisição de autorização é a principal operação do Cielo E-commerce, p
 
 <aside class="notice">Para os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)</aside>
 
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+
 ## Autorização Direta
 
 ```xml
@@ -650,6 +686,8 @@ A autorização recorrente pode ser feita de duas formas: através do envio de u
 
 <aside class="notice">Para saber se sua loja é elegível a utilizar a autorização recorrente, consulte nossa central de relacionamento ou o Suporte Web Cielo E-commerce.</aside>
 
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+
 ### Autorização recorrente com Cartão
 
 * **Objetivo** - Submeter uma transação recorrente com o uso de um cartão de crédito.
@@ -696,16 +734,18 @@ Essa funcionalidade facilita a identificação de um cartão que tenha sido subs
 
 <aside class="notice">O Renova Fácil só está disponível para transações recorrentes. A efetividade do Renova Fácil depende do uso correto das transações recorrentes devidamente sinalizadas como tal. Consulte os bancos e bandeiras participantes com o Suporte Web Cielo E-commerce.</aside>
 
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+
 ### Autorização de uma transação previamente gerada
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<requisicao-autorizacao-tid id="0000000000" versao="1.2.0">
-  <tid>1006993069990BCAA001</tid>
-  <dados-ec>
-    <numero>1006993069</numero>
-    <chave>25fbb997438630f30b112d033ce2e621b34f3</chave>
-  </dados-ec>
+<requisicao-autorizacao-tid id="a387cb68-b33a-4113-b7c4-9b7dfde871ec" versao="1.3.0">
+    <tid>100699306908642E1001</tid>
+    <dados-ec>
+        <numero>1006993069</numero>
+        <chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3</chave>
+    </dados-ec>
 </requisicao-autorizacao-tid>
 ```
 
@@ -714,6 +754,8 @@ das transações que pararam após a execução deste processo. A mensagem para 
 é a “requisicao-autorizacao-tid” como descrita abaixo:
 
 <aside class="notice">Requisições para transações que não foram submetidas ao processo de autenticação ou foram interrompidas, pois o portador errou a senha não serão aceitas.</aside>
+
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
 |--------|----|-----------|-------|---------|
@@ -1074,16 +1116,15 @@ Já no segundo caso, é preciso fazer uma “captura posterior”, através de u
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<requisicao-captura id="0374f305-0e23-4aad-82a2-055788c8cf4d" versao="1.2.1">
-  <tid>10069930690360EF1001</tid>
-  <dados-ec>
-    <numero>1006993069</numero>
-    <chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3</chave>
-  </dados-ec>
-  <valor>10000</valor>
-  <taxa-embarque>1000</taxa-embarque>
+<requisicao-captura id="adbc9961-8a39-452b-b7fd-15b44b464a97" versao="1.3.0">
+    <tid>10069930690864281001</tid>
+    <dados-ec>
+        <numero>1006993069</numero>
+        <chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3</chave>
+    </dados-ec>
+    <valor>1000</valor>
+    <taxa-embarque>0</taxa-embarque>
 </requisicao-captura>
-
 ```
 
 * **Objetivo** - Realizar a captura total e parcial de uma transação previamente autorizada.
@@ -1137,14 +1178,13 @@ O cancelamento é utilizado quando o lojista decide não efetivar um pedido de c
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<requisicao-cancelamento id="13368079-dedc-4cdf-9140-84473faf83d4" versao="1.2.1">
-  <tid>100699306903613D1001</tid>
-  <dados-ec>
-    <numero>1006993069</numero>
-    <chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
-</chave>
-  </dados-ec>
-  <valor>200</valor>
+<requisicao-cancelamento id="39d36eb6-5ae9-4308-89a1-455d299460c0" versao="1.3.0">
+    <tid>100699306908642E1001</tid>
+    <dados-ec>
+        <numero>1006993069</numero>
+        <chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3</chave>
+    </dados-ec>
+    <valor>0</valor>
 </requisicao-cancelamento>
 ```
 
