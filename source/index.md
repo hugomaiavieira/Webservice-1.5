@@ -245,7 +245,7 @@ Todas as transações no Cielo E-commerce iniciam-se através de um POST (HTTPS)
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
 |--------|----|-----------|-------|---------|
 |bandeira|Alfanumérico|Sim|n/a|Nome da bandeira (minúsculo): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”|
-|produto|Alfanumérico|Sim|1|Código do produto: **1** – Crédito à Vista, **2** – Parcelado loja, **A** – Débito.|
+|produto|Alfanumérico|Sim|1|Código do produto: **1** – Crédito à Vista, **2** – Parcelado loja, **3** - Parcelado Administradora, **A** – Débito.|
 |parcelas|Numérico|Sim|1..2|Número de parcelas. **Para crédito à vista ou débito, utilizar 1.**|
 
 <aside class="warning">O valor do resultante da divisão do valor do pedido pelo número de parcelas não deve ser
