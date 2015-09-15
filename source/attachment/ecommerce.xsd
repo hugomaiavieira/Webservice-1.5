@@ -14,7 +14,7 @@
     				<xsd:element name="dados-pedido"
     					type="tns:DadosPedido" maxOccurs="1" minOccurs="1">
     				</xsd:element>
-
+                                
     				<xsd:element name="forma-pagamento"
     					type="tns:FormaPagamento" maxOccurs="1" minOccurs="1">
     				</xsd:element>
@@ -85,14 +85,14 @@
     				</xsd:element>
 
     				<xsd:element name="avs" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
-
+                                
                     <xsd:element name="dados-autenticacao-mpi-externa"
     					type="tns:DadosAutenticacaoMPIExterna" maxOccurs="1" minOccurs="0">
                     </xsd:element>
-
+					
 					<xsd:element name="analise-fraude"
     					type="tns:AnaliseFraude" maxOccurs="1" minOccurs="0">
-    				</xsd:element>
+    				</xsd:element>					
     			</xsd:sequence>
     		</xsd:extension>
     	</xsd:complexContent>
@@ -132,26 +132,26 @@
     		</xsd:extension>
     	</xsd:complexContent>
     </xsd:complexType>
-
+    
     <xsd:complexType name="RequisicaoConsulta">
     	<xsd:complexContent>
     		<xsd:extension base="tns:Requisicao"></xsd:extension>
     	</xsd:complexContent>
     </xsd:complexType>
-
+    
 
     <xsd:complexType name="RequisicaoAutorizacaoTid">
     	<xsd:complexContent>
     		<xsd:extension base="tns:Requisicao"></xsd:extension>
     	</xsd:complexContent>
     </xsd:complexType>
-
+    
     <xsd:complexType name="DadosPedido">
     	<xsd:sequence>
     		<xsd:element name="numero" maxOccurs="1" minOccurs="1"
     			type="tns:numeroPedidoType">
     		</xsd:element>
-
+    		
     		<xsd:element name="valor" minOccurs="1" maxOccurs="1">
     			<xsd:annotation>
     				<xsd:documentation>
@@ -166,8 +166,8 @@
     				</xsd:restriction>
     			</xsd:simpleType>
     		</xsd:element>
-
-
+    		
+    		
     		<xsd:element name="moeda" minOccurs="1" maxOccurs="1">
     			<xsd:annotation>
     				<xsd:documentation>
@@ -204,7 +204,7 @@
     		<xsd:element name="soft-descriptor" type="tns:softDescriptorType" minOccurs="0" maxOccurs="1"></xsd:element>
     	</xsd:sequence>
     </xsd:complexType>
-
+    
     <xsd:complexType name="RequisicaoAutorizacaoPortador">
     	<xsd:complexContent>
     		<xsd:extension base="tns:Requisicao">
@@ -261,11 +261,11 @@
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
-
+	
 	<xsd:complexType name="RequisicaoToken">
 		<xsd:complexContent>
 			<xsd:extension base="tns:Mensagem">
-				<xsd:sequence>
+				<xsd:sequence>					
 					<xsd:element name="dados-ec" type="tns:DadosEc"></xsd:element>
 					<xsd:element name="dados-portador" type="tns:DadosCartao"></xsd:element>
 				</xsd:sequence>
@@ -273,8 +273,8 @@
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
-
-
+	
+	
     <xsd:element name="requisicao-autenticacao" type="tns:RequisicaoNovaTransacao"></xsd:element>
 
     <xsd:complexType name="DadosEc">
@@ -314,7 +314,7 @@
     				<xsd:pattern value="[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}"></xsd:pattern>
     				<xsd:enumeration value="1.0.0"></xsd:enumeration>
     				<xsd:enumeration value="1.1.0"></xsd:enumeration>
-					<xsd:enumeration value="1.1.1"></xsd:enumeration>
+					<xsd:enumeration value="1.1.1"></xsd:enumeration>    				
 					<xsd:enumeration value="1.2.0"></xsd:enumeration>
 					<xsd:enumeration value="1.2.1"></xsd:enumeration>
                     <xsd:enumeration value="1.3.0"></xsd:enumeration>
@@ -329,7 +329,7 @@
     		<xsd:element name="numero" minOccurs="0" maxOccurs="1">
     			<xsd:simpleType>
     				<xsd:restriction base="xsd:string">
-    					<xsd:pattern value="[0-9]{0,19}"></xsd:pattern>
+    					<xsd:pattern value="[0-9]{0,19}"></xsd:pattern>    					
     				</xsd:restriction>
     			</xsd:simpleType>
     		</xsd:element>
@@ -341,7 +341,7 @@
     			</xsd:annotation>
     			<xsd:simpleType>
     				<xsd:restriction base="xsd:string">
-    					<xsd:pattern value="[0-9]{0,6}"></xsd:pattern>
+    					<xsd:pattern value="[0-9]{0,6}"></xsd:pattern>   					
     				</xsd:restriction>
     			</xsd:simpleType>
     		</xsd:element>
@@ -370,7 +370,7 @@
 
     			<xsd:simpleType>
     				<xsd:restriction base="xsd:string">
-    					<xsd:pattern value="\d{0}|\d{3,4}"></xsd:pattern>
+    					<xsd:pattern value="[0-9]{3,4}"></xsd:pattern>    					
     				</xsd:restriction>
     			</xsd:simpleType>
     		</xsd:element>
@@ -413,9 +413,9 @@
     <xsd:element name="requisicao-consulta" type="tns:RequisicaoConsulta"></xsd:element>
 
 	<xsd:element name="requisicao-consulta-chsec" type="tns:RequisicaoConsultaChSec"></xsd:element>
-
+	
 	<xsd:element name="requisicao-token" type="tns:RequisicaoToken"></xsd:element>
-
+	
 
     <xsd:complexType name="FormaPagamento">
 		<xsd:sequence>
@@ -457,11 +457,11 @@
     		</xsd:element>
     	</xsd:sequence>
     </xsd:complexType>
-
+    
     <xsd:complexType name="DadosToken">
-    	<xsd:sequence>
+    	<xsd:sequence>    		
 			<xsd:element name="codigo-token" maxOccurs="1" minOccurs="1" type="tns:tokenType"></xsd:element>
-
+				
     		<xsd:element name="status" maxOccurs="1" minOccurs="1">
     					<xsd:annotation>
     						<xsd:documentation>
@@ -473,9 +473,9 @@
     							<xsd:pattern value="(0|1)"></xsd:pattern>
     						</xsd:restriction>
     					</xsd:simpleType>
-    		</xsd:element>
-
-
+    		</xsd:element>	
+    		
+    		
 
 			<xsd:element name="numero-cartao-truncado" minOccurs="1" maxOccurs="1">
     			<xsd:simpleType>
@@ -483,11 +483,11 @@
     					<xsd:pattern value="[a-zA-Z0-9]{1,19}"></xsd:pattern>
     				</xsd:restriction>
     			</xsd:simpleType>
-    		</xsd:element>
-
+    		</xsd:element>    		
+    		
     	</xsd:sequence>
     </xsd:complexType>
-
+    
 
     <xsd:complexType name="DadosEcAutenticacao">
     	<xsd:complexContent>
@@ -569,7 +569,7 @@
     		</xsd:extension>
     	</xsd:complexContent>
     </xsd:complexType>
-
+        
     <xsd:complexType name="AnaliseFraudeRetorno">
 		<xsd:sequence>
 			<xsd:element name="statusRevisao" type="tns:StatusRevisao"
@@ -697,7 +697,7 @@
 			<xsd:maxLength value="20"></xsd:maxLength>
 		</xsd:restriction>
 	</xsd:simpleType>
-
+	
 	<xsd:simpleType name="softDescriptorType">
 		<xsd:restriction base="xsd:string">
 			<xsd:pattern value="[\s*a-zA-Z0-9]{0,13}"></xsd:pattern>
@@ -705,9 +705,9 @@
 			<xsd:maxLength value="13"></xsd:maxLength>
 		</xsd:restriction>
 	</xsd:simpleType>
-
+	
 	<xsd:simpleType name="tokenType">
-		<xsd:restriction base="xsd:string">
+		<xsd:restriction base="xsd:string">			
 			<xsd:minLength value="0"></xsd:minLength>
 			<xsd:maxLength value="100"></xsd:maxLength>
 		</xsd:restriction>
@@ -742,15 +742,15 @@
 
     <xsd:complexType name="RequisicaoErro">
     	<xsd:sequence>
+    		<xsd:attribute name="id" type="xsd:string"></xsd:attribute>
     		<xsd:element name="codigo" type="xsd:string"></xsd:element>
     		<xsd:element name="mensagem" type="xsd:string"></xsd:element>
     	</xsd:sequence>
-   		<xsd:attribute name="id" type="xsd:string"></xsd:attribute>
     </xsd:complexType>
 
     <xsd:element name="erro" type="tns:RequisicaoErro"></xsd:element>
 
-
+    
     <xsd:complexType name="RequisicaoTid">
     	<xsd:complexContent>
     		<xsd:extension base="tns:Mensagem">
@@ -774,7 +774,7 @@
     		</xsd:extension>
     	</xsd:complexContent>
     </xsd:complexType>
-
+    
     <xsd:complexType name="RetornoToken">
     	<xsd:complexContent>
     		<xsd:extension base="tns:Mensagem">
@@ -786,7 +786,7 @@
     		</xsd:extension>
     	</xsd:complexContent>
     </xsd:complexType>
-
+    
 
     <xsd:simpleType name="idiomaType">
     	<xsd:restriction base="xsd:string">
@@ -798,7 +798,7 @@
     </xsd:simpleType>
 
     <xsd:element name="retorno-tid" type="tns:RetornoTid"></xsd:element>
-
+    
     <xsd:element name="retorno-token" type="tns:RetornoToken"></xsd:element>
 
     <xsd:simpleType name="statusType">
@@ -835,10 +835,12 @@
     	<xsd:complexContent>
     		<xsd:extension base="tns:Processamento">
     			<xsd:sequence>
-    				<xsd:element name="eci" maxOccurs="1" minOccurs="1">
+    				<xsd:element name="eci" maxOccurs="1"
+    					minOccurs="0">
+
     					<xsd:simpleType>
     						<xsd:restriction base="xsd:int">
-    							<xsd:pattern value="[0-9]{1}"></xsd:pattern>
+    							<xsd:pattern value="[0-9]{0,2}"></xsd:pattern>
     						</xsd:restriction>
     					</xsd:simpleType>
     				</xsd:element>
@@ -949,8 +951,8 @@
     				<xsd:element name="url-retorno" maxOccurs="1"
     					minOccurs="0">
     					<xsd:simpleType>
-    						<xsd:restriction base="xsd:string">
-    						    <xsd:minLength value="0"></xsd:minLength>
+    						<xsd:restriction base="xsd:string">    			
+    						    <xsd:minLength value="0"></xsd:minLength>				
     							<xsd:maxLength value="1024"></xsd:maxLength>
     						</xsd:restriction>
     					</xsd:simpleType>
@@ -986,7 +988,7 @@
     		</xsd:extension>
     	</xsd:complexContent>
     </xsd:complexType>
-
+    
 	    <xsd:complexType name="DadosCelular">
     	<xsd:sequence>
     		<xsd:element name="ddd" minOccurs="1" maxOccurs="1">
@@ -1006,7 +1008,7 @@
     		</xsd:element>
        	</xsd:sequence>
     </xsd:complexType>
-
+    
  <xsd:complexType name="FormaPagamentoCelular">
     	<xsd:sequence>
             <xsd:element name="produto" maxOccurs="1" minOccurs="1">
@@ -1031,9 +1033,9 @@
     		</xsd:element>
     	</xsd:sequence>
     </xsd:complexType>
-
+	
 	<xsd:element name="requisicao-nova-transacao-celular" type="tns:RequisicaoNovaTransacaoCelular"></xsd:element>
-
+        
     <xsd:complexType name="DadosAutenticacaoMPIExterna">
         <xsd:sequence>
             <xsd:element name="cavv" maxOccurs="1" minOccurs="0">
@@ -1046,11 +1048,6 @@
                     <xsd:restriction base="xsd:string"></xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-            <xsd:element name="eci" maxOccurs="1" minOccurs="0">
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:string"></xsd:restriction>
-                </xsd:simpleType>
-            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
 <!-- Campos que configuram o comportamento da analise de fraude -->
@@ -1059,7 +1056,7 @@
             <xsd:element name="analisar-fraude" type="xsd:boolean" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
 					<xsd:documentation>
-                            Define se a transacao sera passada pela analise de fraude.
+                            Define se a transacao sera passada pela analise de fraude. 
 					</xsd:documentation>
 				</xsd:annotation>
             </xsd:element>
@@ -1103,9 +1100,9 @@
 
     <xsd:complexType name="AnaliseFraude">
         <xsd:sequence>
-
+            
             <xsd:element name="configuracao" type="tns:ConfiguracaoAnaliseFraude" maxOccurs="1" minOccurs="1"></xsd:element>
-
+            
             <xsd:element name="afsService_run" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1200,7 +1197,7 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-
+            
             <xsd:element name="billTo_postalCode" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1214,7 +1211,7 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-
+            
             <xsd:element name="billTo_customerID" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1241,7 +1238,7 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-
+            
             <xsd:element name="billTo_personalID" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1254,7 +1251,7 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-
+            
             <xsd:element name="billTo_email" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1266,8 +1263,8 @@
                         <xsd:maxLength value="100"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>                        
+                                        
             <xsd:element name="billTo_firstName" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1280,8 +1277,8 @@
                         <xsd:maxLength value="60"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element> 
+            
             <xsd:element name="billTo_lastName" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1295,7 +1292,7 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-
+            
             <xsd:element name="billTo_phoneNumber" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1304,12 +1301,12 @@
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>
-                    <xsd:restriction base="xsd:string">
-                        <xsd:pattern value="[0-9]{0,15}"></xsd:pattern>
+                    <xsd:restriction base="xsd:string">                        
+                        <xsd:pattern value="[0-9]{0,15}"></xsd:pattern>                        
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>                                                     
+                                    
             <xsd:element name="billTo_ipAddress" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1321,8 +1318,8 @@
                         <xsd:maxLength value="15"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>                                                 
+                                                                        
             <xsd:element name="shipto_street1" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1334,8 +1331,8 @@
                         <xsd:maxLength value="60"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>              
+            
             <xsd:element name="shipto_street2" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1347,8 +1344,8 @@
                         <xsd:maxLength value="60"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>     
+            
             <xsd:element name="shipto_city" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1360,8 +1357,8 @@
                         <xsd:maxLength value="50"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>                         
+                                
             <xsd:element name="shipto_state" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1374,8 +1371,8 @@
                         <xsd:length value="2"></xsd:length>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element> 
+            
             <xsd:element name="shipto_country" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1387,8 +1384,8 @@
                         <xsd:length value="2"></xsd:length>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element> 
+            
             <xsd:element name="shipto_postalCode" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1401,8 +1398,8 @@
                         <xsd:maxLength value="10"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>                                                                                                                                                                 
+                                                                                                                                          
             <xsd:element name="shipTo_phoneNumber" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1415,8 +1412,8 @@
                         <xsd:pattern value="[0-9]{0,15}"></xsd:pattern>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>                                                                                                                                                                                                                                 
+                                                    
             <xsd:element name="deviceFingerprintID" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1428,8 +1425,8 @@
                         <xsd:maxLength value="88"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>                                                                                                                                                                                                                                    
+                                                                                                                                                                      
             <xsd:element name="decisionManager_travelData_completeRoute" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1441,8 +1438,8 @@
                         <xsd:maxLength value="255"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>                                                                                                                                                                                                                                                   
+                                                                                               
             <xsd:element name="decisionManager_travelData_departureDateTime" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1463,8 +1460,8 @@
                         <xsd:maxLength value="25"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>                   
+                                                                            
             <xsd:element name="decisionManager_travelData_journeyType" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1476,7 +1473,7 @@
                         <xsd:maxLength value="32"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
+            </xsd:element> 
 
             <xsd:element name="decisionManager_travelData_leg_origin" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
@@ -1489,8 +1486,8 @@
                         <xsd:maxLength value="3"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>             
+                                                                                                                                                                                                           
             <xsd:element name="decisionManager_travelData_leg_destination" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1502,7 +1499,7 @@
                         <xsd:maxLength value="3"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
+            </xsd:element>  
 
             <xsd:element name="purchaseTotals_currency" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
@@ -1515,7 +1512,7 @@
                         <xsd:maxLength value="5"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
+            </xsd:element>                        
 
             <xsd:element name="purchaseTotals_grandTotalAmount" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
@@ -1529,7 +1526,7 @@
                         <xsd:fractionDigits value="2"></xsd:fractionDigits>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
+            </xsd:element>                            
 
             <xsd:element name="item_unitPrice" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
@@ -1540,7 +1537,7 @@
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string"/>
                 </xsd:simpleType>
-            </xsd:element>
+            </xsd:element>  
 
             <xsd:element name="item_passengerFirstName" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
@@ -1553,8 +1550,8 @@
                         <xsd:maxLength value="60"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>               
+            
             <xsd:element name="item_passengerLastName" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1566,7 +1563,7 @@
                         <xsd:maxLength value="60"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
+            </xsd:element>                                    
 
             <xsd:element name="item_passengerEmail" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
@@ -1579,8 +1576,8 @@
                         <xsd:maxLength value="255"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>  
+            
             <xsd:element name="item_passengerID" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1592,13 +1589,13 @@
                         <xsd:maxLength value="32"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element> 
+            
             <xsd:element name="item_passengerPhone" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
                         Telefone de contato do passageiro.
-                        Apenas números, é recomendável o
+                        Apenas números, é recomendável o 
                         preenchimento do código do país.
                     </xsd:documentation>
                 </xsd:annotation>
@@ -1607,8 +1604,8 @@
                         <xsd:pattern value="[0-9]{0,15}"></xsd:pattern>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element> 
+                                 
             <xsd:element name="item_passengerStatus" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1620,7 +1617,7 @@
                         <xsd:maxLength value="32"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
+            </xsd:element>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
             <xsd:element name="item_passengerType" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
@@ -1633,7 +1630,7 @@
                         <xsd:maxLength value="32"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
+            </xsd:element>  
 
             <xsd:element name="item_quantity" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
@@ -1647,7 +1644,7 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-
+            
             <xsd:element name="item_productCode" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1659,8 +1656,8 @@
                         <xsd:maxLength value="255"></xsd:maxLength>
                     </xsd:restriction>
                 </xsd:simpleType>
-            </xsd:element>
-
+            </xsd:element>  
+            
             <xsd:element name="installment_totalCount" maxOccurs="1" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1673,14 +1670,14 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-
+            
             <xsd:element name="mdd"
                     type="tns:MDD" maxOccurs="1" minOccurs="0">
             </xsd:element>
-
+            
         </xsd:sequence>
-    </xsd:complexType>
-
+    </xsd:complexType>        
+	
     <xsd:complexType name="MDD">
     	<xsd:sequence>
             <xsd:element name="merchantDefinedData_mddField_6" maxOccurs="1" minOccurs="0">
@@ -2062,7 +2059,7 @@
     						<xsd:maxLength value="255"></xsd:maxLength>
     					</xsd:restriction>
 				</xsd:simpleType>
-            </xsd:element>
+            </xsd:element>    
             <xsd:element name="merchantDefinedData_mddField_46" maxOccurs="1" minOccurs="0">
                         <xsd:annotation>
     				<xsd:documentation>
@@ -2074,7 +2071,7 @@
     						<xsd:maxLength value="255"></xsd:maxLength>
     					</xsd:restriction>
 				</xsd:simpleType>
-            </xsd:element>
+            </xsd:element>   
             <xsd:element name="merchantDefinedData_mddField_47" maxOccurs="1" minOccurs="0">
     			<xsd:simpleType>
     					<xsd:restriction base="xsd:string">
@@ -2088,14 +2085,14 @@
     						<xsd:maxLength value="255"></xsd:maxLength>
     					</xsd:restriction>
 				</xsd:simpleType>
-            </xsd:element>
+            </xsd:element>        
             <xsd:element name="merchantDefinedData_mddField_49" maxOccurs="1" minOccurs="0">
     			<xsd:simpleType>
     					<xsd:restriction base="xsd:string">
     						<xsd:maxLength value="255"></xsd:maxLength>
     					</xsd:restriction>
 				</xsd:simpleType>
-            </xsd:element>
+            </xsd:element>  
             <xsd:element name="merchantDefinedData_mddField_50" maxOccurs="1" minOccurs="0">
     			<xsd:simpleType>
     					<xsd:restriction base="xsd:string">
@@ -2667,7 +2664,7 @@
     						<xsd:maxLength value="255"></xsd:maxLength>
     					</xsd:restriction>
 			</xsd:simpleType>
-            </xsd:element>
-        </xsd:sequence>
+            </xsd:element>           
+        </xsd:sequence> 
     </xsd:complexType>
 </xsd:schema>
