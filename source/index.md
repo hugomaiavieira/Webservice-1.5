@@ -13,9 +13,9 @@ search: true
 
 # Integração Webservice 1.5
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com o Webservice da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a solução Webservice da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
 
-O mecanismo de integração com o Cielo E-commerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos XML, são necessários para implantar a solução Cielo E-commerce com sucesso.
+O mecanismo de integração com o Cielo E-commerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos XML, são necessários para implantar a solução Cielo E-commerce com sucesso. É importante destacar para utilizar essa plataforma, o website deve estar em confirmidade com regras de segurança ou utilizar a certificação PCI. Para dúvidas sobre segurança web, favor encaminhar email para: e-seg@cielo.com.br
 
 
 Após a conclusão do credenciamento e recebimento das instruções é preciso desenvolver a integração utilizando como guia este manual. Assim que a integração estiver concluída, é necessário preencher completamente o formulário de homologação e enviá-lo para o Suporte Web do Cielo E-commerce que informará ao estabelecimento a chave de segurança.
@@ -245,7 +245,7 @@ Todas as transações no Cielo E-commerce iniciam-se através de um POST (HTTPS)
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
 |--------|----|-----------|-------|---------|
 |bandeira|Alfanumérico|Sim|n/a|Nome da bandeira (minúsculo): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”|
-|produto|Alfanumérico|Sim|1|Código do produto: **1** – Crédito à Vista, **2** – Parcelado loja, **3** - Parcelado Administradora, **A** – Débito.|
+|produto|Alfanumérico|Sim|1|Código do produto: **1** – Crédito à Vista, **2** – Parcelado loja, **A** – Débito.|
 |parcelas|Numérico|Sim|1..2|Número de parcelas. **Para crédito à vista ou débito, utilizar 1.**|
 
 <aside class="warning">O valor do resultante da divisão do valor do pedido pelo número de parcelas não deve ser
