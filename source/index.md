@@ -162,8 +162,8 @@ Todas as transações no Cielo E-commerce iniciam-se através de um POST (HTTPS)
     <data-hora>2011-12-07T11:43:37</data-hora>
     <descricao>[origem:10.50.54.156]</descricao>
     <idioma>PT</idioma>
-    <soft-descriptor/>
     <taxa-embarque/>
+    <soft-descriptor/>
   </dados-pedido>
   <forma-pagamento>
     <bandeira>visa</bandeira>
