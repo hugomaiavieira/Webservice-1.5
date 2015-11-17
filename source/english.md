@@ -9,17 +9,17 @@ search: true
 
 # Webservice integration 1.5
 
-The purpose of this documentation is to orientate the developer about how integrate with Cielo Webservice, describing its functionalities, the methods to be used, list information to be sent and received and provide examples. 
+The purpose of this documentation is to orientate the developer about how integrate with Cielo Webservice, describing its functionalities, the methods to be used, list information to be sent and received and provide examples.
 
 The integration mechanism with Cielo E-commerce is simple, so that are necessary only an intermediate knowledge in programming language for Web, HTTP/HTTP requisitions and handling XML archive to implant Cielo E-commerce solution with success.
 
-To carry out a test on homolagation it’s not necessary to log/register at Cielo, however to sell on internet it’s necessary to register on Cielo link: [https://www.cielo.com.br/sitecielo/e-commerce/credenciamento-ecommerce.html](https://www.cielo.com.br/sitecielo/e-commerce/credenciamento-ecommerce.html).
+Importantly to use this platform, the website must comply with safety rules or use the PCI certification. For questions about web security, please send email to: [e-seg@cielo.com.br](mailto:e-seg@cielo.com.br)
 
 After conclude the registration and receive the instructions, you need to develop the integration using this documentation as a guide. Once the integration is completed, it’s necessary to fill the homologation form fully and then send it to Cielo E-commerce Web Support that will inform the secure key to the establishment.
 
 Finally, after the development, to start the operation on production environment, first, it's necessary start the homologation at Cielo.
 
-<aside class="notice">Look at section [Homologation](#Homologation) to more instruction about the homologation process</aside>
+<aside class="notice">Look at section <a href="#Homologation">Homologation</a> to more instruction about the homologation process</aside>
 
 ## Cielo Support
 
@@ -53,7 +53,7 @@ To facilitate the understanding, we listed below a small glossary with the main 
 * **VBV (Verified by Visa)**: International Program at Visa that allows the buyer authentication in the moment of purchase in e-commerce environment.
 
 <aside class="notice">Access http://www.mastercard.com.br/securecode to more details about SecureCode</aside>
-<aside class="notice">Access http://www.verifiedbyvisa.com.br  to more details about VBV</aside>
+<aside class="notice">Access http://www.verifiedbyvisa.com.br to more details about VBV</aside>
 
 ## Products and Card Issuers supported
 
@@ -76,7 +76,7 @@ In this documentation we will be present an overview of Cielo E-commerce and the
 
 To more information about integration at Checkout Cielo format (named in the previous versions as Buy Page Cielo or Integrated Solution) access: [https://www.cielo.com.br/ecommerce](https://www.cielo.com.br/ecommerce).
 
-For all purchase orders, the goal is convert it in a sale. A sale using a card can be characterized as an authorized and captured transaction.
+For all purchase orders, the purpose is convert it in a sale. A sale using a card can be characterized as an authorized and captured transaction.
 
 <aside class="warning">An authorized transaction only creates credit to the retailer if it can be captured (or confirmed).</aside>
 
@@ -183,6 +183,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
   </avs>
 </requisicao-transacao>
 ```
+<aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
 ### ROOT Node
 
@@ -212,7 +213,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |--------|----|-----------|-------|---------|
 |numero|numeric|Sim|19|Card number|
 |validade|Numénumericrico|Sim|6|Card validity of format: yyyymm. Example: 201212 (dec/2012).|
-|indicador|numeric|Sim|1|Card validity of Secure Code Sending: 0 - Not informed, 1- informed, 2-illegible, 9- Inexistent|
+|indicador|numeric|Sim|1|Card validity of Secure Code Sending: **0** - Not informed, **1**- informed, **2**-illegible, **9**- Inexistent|
 |codigo-seguranca|numeric|Condicional|3..4|Security code is required when indicator is **1**|
 |nome-portador|alphanumeric|Opcional|0..50|Holder name|
 |token|Alfanumérico|Conditional|0..100|Token must be used in replacement to card data to direct authorization or recurrent. It's not allowed to send a token with the card information in the same transaction.|
@@ -221,12 +222,12 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 
 |Element|Type|Mandatory|Size|Description|
 |--------|----|-----------|-------|---------|
-|numero|Alphanumeric|Yes|1..20|Order number of store. We recommend just one number per order.|
+|numero|Alphanumeric|Yes|1..20|Order number of store. **We recommend just one number per order.**|
 |valor|Numeric|Yes|1..12|Amount to be charged on the order (must be also included shipping costs, package, extras costs, boarding fees, etc). This amount will be charged from customer.|
-|moeda|Numeric|Yes|3|Numeric code of currency at norm ISO 4217. For "Real", the code is 986.|
-|data-hora|Alphanumeric|Yes|19|Data hour of order. Format: yyyy-MM-ddTHH24:mm:ss|
+|moeda|Numeric|Yes|3|Numeric code of currency at norm ISO 4217. **For "Real", the code is 986.**|
+|data-hora|Alphanumeric|Yes|19|Data hour of order. **Format**: yyyy-MM-ddTHH24:mm:ss|
 |descricao|Alphanumeric|Optional|0..1024|Order description|
-|idioma|Alphanumeric|Optional|2|Order language: PT (Portuguese), EN (English) or ES (Spanish). Based on this information the language is defined used on Cielo' screens. If it won't be sent, the system will assume "PT".|
+|idioma|Alphanumeric|Optional|2|Order language: PT (Portuguese), EN (English) or ES (Spanish). Based on this information the language is defined used on Cielo' screens. **If it won't be sent, the system will assume "PT".**|
 |taxa-embarque|Numeric|Optional|1..9|Amount of authorization value that must be destined to boarding fee.|
 |soft-descriptor|Alphanumeric|Optional|0..13|Text until 13 characters that will be shown on holder's invoice, after the Commercial Establishment name.|
 
@@ -237,8 +238,8 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |Element|Type|Mandatory|Size|Description|
 |--------|----|-----------|-------|---------|
 |bandeira|Alphanumeric|Yes|n/a|NomeCard issuer's name (minuscule): "visa", "mastercard", "diners", "discover", "elo", "amex", "jcb", "aura".|
-|produto|Alphanumeric|Yes|1|Product code: 1- Repayable on demand, 2- Credit card installments on store, A- Debt|
-|parcelas|Numeric|Sim|1..2|Installments number. To repayable on demand or debt, use 1.|
+|produto|Alphanumeric|Yes|1|Product code: **1**- Repayable on demand, **2**- Credit card installments on store, **A**- Debt|
+|parcelas|Numeric|Sim|1..2|Installments number. **To repayable on demand or debt, use 1.**|
 
 <aside class="warning">The result of order division by installments number don't must be lower than R$ 5,00. Otherwise the transaction will be deny.</aside>
 
@@ -246,7 +247,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 
 After creating a transaction, the browsing flux can be directed to Cielo environment, if the retailer requests the authentication on XML message.
 
-In this situation, the retailer' system will obtain the amount of TAG of XML returned to realize a redirection on customer browser and continues the process. The redirecting must be realized in "Full Screen" mode. In the other words, there is no more support to the pop up window. This way, from a checkout screen must be realized a redirecting to URL returned at transaction's creation.
+In this situation, the retailer' system will obtain the amount of TAG of XML <url-autenticacao> returned to realize a redirection on customer browser and continues the process. The redirecting must be realized in "Full Screen" mode. In the other words, there is no more support to the pop up window. This way, from a checkout screen must be realized a redirecting to URL returned at transaction's creation.
 
 <aside class="notice">This redirection can be done through Http Redirect (as in the code Model) or through a Javascript.</aside>
 
@@ -338,7 +339,7 @@ The authentication isn't done automatically between systems, so it's necessary t
 
 This happens always on the bank website (Internet Banking), using mechanisms and technologies independently from Cielo. In this way, it's possible for bank use an electronic token and password meanwhile another uses the password cards or CPF [c]to authenticate a transaction.
 
-As shown previously, the mechanic of redirection is obtained through a tag <url-authentication> that is returned by Cielo on XML in the moment of a request of authorization to Web Service.
+As shown previously, the mechanic of redirection is obtained through a tag `<url-autenticacao>` that is returned by Cielo on XML <transação> in the moment of a request of authorization to Web Service.
 
 The authentication is mandatory for debt transactions and optional for credit. Nowadays only Visa and MasterCard support this functionality and consequently, only these two card issuers have the debt product.
 
@@ -349,11 +350,12 @@ When there is authentication, the flux to execute an authorization happens in tw
 ![fluxo-autenticacao](/images/fluxo-autenticacao.png)
 
 1. finishOrder() - it happens when a cardholder finishes the order and starts the payment purchase.
-    1. createTransaction (authenticated) - the retailer system send a XML request <requisicao-transacao> requesting an authenticated transaction, in other words, a TAG will be 0,1 or 2. After this, Cielo will inform at XML returned a field with the address which the holder must be redirected for.
+    1. createTransaction (authenticated) - the retailer system send a XML request `<requisicao-transacao>` requesting an authenticated transaction, in other words, the TAG <autorizar> will be 0,1 or 2. After this, Cielo will inform at XML returned a field <url-autenticacao> with the address which the holder must be redirected for.
 2. access (url-authentication) - the holder's browser is redirected to Cielo environment. Thereby, the Cielo's page is accessed, it automatically is directed to an issuer bank (3.1). This redirect is so fast that is practically imperceptible.
 3. authenticate (token, cpf) - the holder will be on bank environment and will use some mechanism provided by his/her own issuer to realize the authentication of the transaction (generally token, "bingo card"/security card, cpf, electronic sign, etc).
-    1. resultAuthentication ()- the issuer bank redirects the flux to Cielo with the result of authentication. Then, the flux backs to normal, according to item "2.3 Architecture of integration". 1. process () - Cielo system process the return of authentication and submit to authorization and, optionally, to automatic capture.
-    2. sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (<requisicao-transacao>)
+    1. resultAuthentication ()- the issuer bank redirects the flux to Cielo with the result of authentication. Then, the flux backs to normal, according to item "2.3 Architecture of integration".
+   1. process () - Cielo system process the return of authentication and submit to authorization and, optionally, to automatic capture.
+    2. sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (`<requisicao-transacao>`)
         1. access (url-return) - the holder's browser access the URL on store environment, where we recommend that you have a consult request via TID to Cielo Web Service.
 
 
@@ -364,11 +366,35 @@ When there is authentication, the flux to execute an authorization happens in tw
 
 <aside class="notice">Consult products and card issuers supported on item 1.6. “Product and card issuers supported”.</aside>
 
-Os pré-requisitos para que uma transação seja autenticada estão relacionados abaixo:
+The prerequisites for a transaction to be certified are listed below:
 
-* Banco e Bandeira devem ser participantes do programa de autenticação;
-* O BIN do cartão deve ser participante do programa de autenticação;
-* A configuração da <requisicao-transacao>//<autorizar> deve ser 0, 1 ou 2.
+* Bank and card issuer should be participating in the authentication program;
+* The BIN card must be participant in authentication program;
+* Setting the // <allow> is 0, 1 or 2.
+
+When there is authentication, the flux to execute an authorization happens in two steps, according to the diagram below:
+
+![fluxo-autorizacao](/images/fluxo-autorizacao.png)
+
+1. finishOrder() - it happens when a cardholder finishes the order and starts the payment purchase.
+1. createTransaction (authenticated) - the retailer system send a XML request `<requisicao-transacao>` requesting an authenticated transaction, in other words, the TAG <autorizar> will be 0,1 or 2. After this, Cielo will inform at XML returned a field <url-autenticacao> with the address which the holder must be redirected for.
+2. access (url-authentication) - the holder's browser is redirected to Cielo environment. Thereby, the Cielo's page is accessed, it automatically is directed to an issuer bank (3.1). This redirect is so fast that is practically imperceptible.
+3. authenticate (token, cpf) - the holder will be on bank environment and will use some mechanism provided by his/her own issuer to realize the authentication of the transaction (generally token, "bingo card"/security card, cpf, electronic sign, etc).
+ 1. resultAuthentication ()- the issuer bank redirects the flux to Cielo with the result of authentication. Then, the flux backs to normal, according to item "2.3 Architecture of integration".
+1. process () - Cielo system process the return of authentication and submit to authorization and, optionally, to automatic capture.
+2. sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (`<requisicao-transacao>`)
+        1. access (url-return) - the holder's browser access the URL on store environment, where we recommend that you have a consult request via TID to Cielo Web Service.
+
+### Notes:
+
+* Only on first redirection (1.2: send Redirect()) is Online Store responsability.
+* The buyer is redirected on bank issuer only if the authentication is available. Otherwise, the transaction will progress to authorization automatically (excepting if the authentication has been just requested).
+
+Taking the picture of the item “2.4 Transaction” you can see that all the transactions will pass for “Autenticated” or “not authenticated” status.
+
+Consequently all transactions will receive the the node <authenticacao> in the merchant response XML. Below the XML with the authentication node:
+
+Looking at the diagram of section [Transaction](# transaction), you can see that all transactions will pass through status "Authenticated" or "not authenticated". Consequently, all receive the node `<autenticacao>` in the merchant response XML. Below the XML with the authentication node:
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -414,11 +440,133 @@ The ECI field (Eletronic Commerce Indicator) represents how safety is a transact
 
 <aside class="warning">The ECI indicator is very important, because it's what defines the Chargeback's rules.</aside>
 
+# Reply Codes Catalog
+
+## Authorization Codes LR
+
+Below are the response codes that account for 99% of the returns generated in the authorization process. The other existing codes are not listed as rarely occur or in specific cases. For these cases must be assumed that they are not likely to retry.
+
+If you have a high amount of return codes that are not listed below, please contact the Cielo Web Support E-commerce.
+
+<aside class="warning"> The descriptions below are exclusively for internal use of the merchant and should not be disclosed to the cardholder. </aside>
+
+<aside class="notice"> Except the AA codes, CA and GA, all others are generated by issuers. </aside>
+
+| Response Code LR | Definition | Meaning | Action | Allows retry |
+| ------------------ | --------- | ----------- | ---- | ------------------- |
+| 00 | authorized Transaction | National Transaction successfully passed || n / a |
+| 01 | Transaction referred by the issuing bank | Referred by the issuing bank | Orient the cardholder to contact the card issuing bank | NO |
+| 04 | Unauthorised Transaction | There are restrictions on the card | Orient the cardholder to redo the transaction | YES |
+| 05 | Transaction unauthorized | There are restrictions on the card | Orient the cardholder to contact the card issuing bank | YES |
+| 06 | Please try again | Failed | Orient the cardholder to redo the transaction | YES |
+| 07 | Restriction with the card | There are restrictions on the card | Orient the cardholder to contact the card issuing bank | NO |
+| 08 | Invalid security code | wrong security code | Orient the cardholder to redo the transaction by entering the security code correctly | NO |
+| 11 | authorized transaction | International Transaction approved successfully || n / a |
+| 13 | invalid value | invalid value |  Orient the cardholder to redo the transaction by entering the correct value | NO |
+| 14 | Invalid Card | Incorrect Typing the card number | Orient the cardholder to verify the card number and enter again | NO |
+| 15 | Bank unavailable issuer | Bank unavailable issuer | Orient the cardholder to wait a while and try again | YES |
+| 21 | Cancellation not made | Cancellation not located on the issuing bank | Guests must contact Cielo Service | NO |
+| 41 | Restriction with the card | There are restrictions on the card | Orient the cardholder to contact the card issuing bank | NO |
+| 51 | Insufficient Balance | Balance insufficient | Orient the cardholder to contact the card issuing bank | YES |
+| 54 | Expired card | expired card | Orient the cardholder to check the expiration of the card and retype | NO |
+| 57 | Transaction not allowed | There are restrictions on the card | Orient the cardholder to contact the card issuing bank | YES |
+| 60 | Unauthorised transaction | There are restrictions on the card | Orient the cardholder to contact the card issuing bank | NO |
+| 62 | Unauthorised transaction | There are restrictions on the card | Orient the cardholder to contact the card issuing bank | NO |
+| 78 | Card has not been unlocked by the holder | card was not unlocked by the holder | Orient the carrier to unlock the card with the card issuer | YES |
+| 82 | Card error | invalid Card | Orient the carrier to verify the card number and enter again | YES |
+| 91 | Bank System is off | Bank unavailable issuer | Orient the carrier to wait a while and try again | YES |
+| 96 | Please try again | Failed to send authorization | Orient the carrier to wait a while and try again | YES |
+| AA | Timeout | Timeout in communication with the issuing bank | Orient the carrier to wait a while and try again | YES |
+| AC | Use debit function | Debit card trying to use credit product | Orient the carrier to use the debit card (Visa or MasterCard) | NO |
+| GA | Transaction referred by Cielo | Referred by Cielo | Orient the  carrier to wait a while and try again | YES |
+
+## Error Codes
+
+The errors that may appear in the XML message through the TAG '<error>' are arranged as follows:
+
+### Table integration errors
+
+| Code | Message | Description | Action |
+| ------ | -------- | --------- | ---- |
+| 1 | Invalid message | The XML message is off the format specified by ecommerce.xsd file | Review the information sent in front XML message specifications |
+| 2 | Invalid Credentials | Inability to authenticate a virtual store request.| Check if the number of accreditation and the key are correct |
+| 3 | Nonexistent transaction | There is no transaction to the informed identifier | Reviewing the application |
+| 8 | Invalid Security Code | The security code entered in the message is invalid.| Review the card information sent in the XML message |
+| 10 | Inconsistency in sending the card | The transaction, with or without card, is divergent with the permission of sending this information | Reviewing the Store Registration allows sending the card or not |
+| 11 | Not enabled mode | The transaction is configured with a non-authorized payment method to the store | Review the payment method requested |
+| 12 | Number of invalid portions | The number of shares requested exceeds the maximum allowed | Review the payment method |
+| 13 | Automatic authorization flag | Flag automatic authorization incompatible with the invalid payment method requested | Review the rules for using the flag |
+| 14 | Invalid Direct Authorization | The Direct authorization request is invalid | Review the rules for using the Direct Authorization |
+| 15 | Direct authorization without card | The direct authorization request is without a card | Review the rules for using the Direct Authorization |
+| 16 | Identifier, TID, invalid | The supplied TID is duplicated | Reviewing the application |
+| 17 | Missing security code | The card security code is not sent (this information is compulsory for Amex) | Reviewing the application |
+| 18 | Security Code indicator inconsistent | Incorrect use of the security code indicator | Review the card information sent in the XML message |
+| 19 | Return URL not supplied | The Return URL is mandatory, except for recurrence and direct authorization.| Review the information sent in the XML message |
+| 20 | Status does not allow authorization | You may not engage authorization for the transaction status | Revise authorization rules |
+| 21 | Deadline authorization expired | It’s not allowed to perform authorization, as the term is expired | Revise authorization rules |
+| 22 | Invalid number of installments | It’s not allowed to perform authorization for this number of installments | Revise authorization rules |
+| 25 | Forward to authorization is not allowed | The result of the transaction authentication does not allow the authorization request | Revise authorization rules |
+| 30 | Invalid status to capture | The status of the transaction does not allow capture | Review the capture rules |
+| 31 | Capture deadline defeated | The capture can not be performed because the time for capture is overdue | Review the capture rules |
+| 32 | Invalid capture value | The amount requested for capture is not valid | Review the capture rules |
+| 33 | Failed to capture | Could not perform the capture | Perform retry. Persisting, contact the E-commerce support and inform the transaction TID.|
+| 34 | Mandatory departure tax value | The amount of the departure tax is required if the catch is partial and authorization has been made with departure tax.| Send again capturing request tagged.|
+| 35 | invalid issuer for use boarding fee | The card issuer used in the transaction does not support the boarding rate.| Remove the rate of shipment, or use a card that supports this feature: Visa or Mastercard.|
+| 36 | Invalid product for use boarding fee | The chosen product is not supported on the departure tax.| Change the product.|
+| 40 | Cancellation deadline defeated | Cancellations can not be performed because the term has expired | Review the cancellation rules.|
+| 42 | Failure to cancel | It was not possible to cancel | Perform retry. Persisting, you should contact the E-commerce support and inform the transaction TID.|
+| 43 | Cancellation value is higher than the allowed value.| The value that is trying to cancel exceeds the total value of the transaction captured.| Review the value of partial cancellation, it may not be larger than the captured value of the transaction.|
+| 51 | Invalid recurrence | The transaction settings do not allow the successful performance of the applicant transaction.| Make sure to choose "Lump Sum"; Make sure you are sending only the token or only credit card |
+| 52 | Invalid Token | The token provided in the authorization request is not valid or is blocked.| Ensure that the Token is correct. If it persists, contact support.|
+| 53 | Recurrence not enabled | Registration the shopkeeper does not allow sending recurring transactions.| Contact support for enable the recurrence to register.|
+| 54 | Transaction with invalid Token | The transaction settings do not allow the direct authorization to use Token is successfully made.| Make sure to choose "Lump Sum"; Make sure you are only sending the token or only credit card.|
+| 55 | Card number not supplied | It was requested the creation of Token, but the credit card number was not provided.| Review the information sent on XML message in front of specifications |
+| 56 | Card validity not supplied | It was requested the creation of Token, but the validity of the credit card has not been provided.| Review the information sent in the message across XML specifications.|
+| 57 | Unexpected error generating Token | System failure occurred at the time of generation of the Token.| Try again. If it persists, contact Support.|
+| 61 | Invalid Recurring Transaction | The recurring transaction settings are invalid.| Make sure the product is Lump Sum if the token or card were sent in the message.|
+| 77 | XID not supplied | authorization with external authentication was requested, but the XID field was not provided.| Review the information sent in the message across XML specifications.|
+| 78 | CAVV not supplied | authorization with external authentication was requested, but CAVV field was not provided.| Review the information sent in the message across XML specifications.|
+| 86 | XID and CAVV not provided | authorization with external authentication was requested, but the CAVV and XID fields were not provided.| Review the information sent in the message across XML specifications.|
+| 87 | CAVV with divergent size | authorization with external authentication was requested, but CAVV field has a divergent size.| Review the information sent in the message across XML specifications.|
+| 88 | XID with differing size | authorization with external authentication was requested, but the XID field has a divergent size.| Review the information sent in the message across XML specifications.|
+| 89 | ECI with divergent size | authorization with external authentication was requested, but the ECI field possesses a divergent size.| Review the information sent in the message across XML specifications.|
+| 90 | ECI invalid | authorization with external authentication was requested, but the ECI field has an invalid value.| Review the information sent in the message across XML specifications.|
+| 95 | Internal error authentication | Failure in system |If it persists, contact the support and tell the transaction TID.|
+| 97 | Unavailable System | System failure | If it persists, contact support.|
+| 98 | Timeout | The application did not respond within 25 seconds | If it persists, contact support.|
+| 99 | Unexpected Error | System failure | If it persists, contact the support and tell the transaction TID.|
+
+## Status of transactions
+
+| Status | Code |
+| ------ | ------ |
+| Built Transaction | 0 |
+| Transaction in Progress | 1 |
+| Transaction Authenticated | 2 |
+| Transaction Not Authenticated | 3 |
+| Authorized Transaction | 4 |
+| Unauthorized Transaction | 5 |
+| Captured Transaction | 6 |
+| Transaction Cancelled | 9 |
+| Transaction Authentication | 10 |
+| Transaction in Cancellation | 12 |
+
+## ECI
+
+| Log Results | Visa | Mastercard | Aura | Other |
+| ------------------------- | ---- | ---------- | ---- | ----- |
+| Successfully authenticated carrier. | 5 | 2 | n / a | n / a |
+| Carrier not authenticated because the issuer didn’t provide authentication mechanisms. | 6 | 1 | n / a | n / a |
+| Carrier not authenticated successfully as an unexpected technical error. | 7 | 1 | n / a | n / a |
+| Carrier not authenticated successfully. | 7 | 0 | n / a | n / a |
+| The store chose to allow bypassing the authentication.| 7 | 0 | 0 | 7 |
+
+
 # Operations and configurations
 
 ## Creating an authorization of transaction
 
-The request for an authorization is the main operation of Cielo E-commerce, because it's through that a sale can be concreted and the sale process can be finished. The authorization has a sequence of configuration that can be customized, besides the functionalities that have value to customer and retailers.
+The request for an authorization is the main operation of Cielo E-commerce, because it's through it, that a sale can be concreted and the sale process can be finished. The authorization has a sequence of configuration that can be customized, besides the functionalities that have value to customer and retailers.
 
 ## Direct authorization
 
@@ -455,7 +603,6 @@ The direct authorization is characterized for being a transaction without authen
 
 * **Purpose** - Submit a direct transaction using a credit card.
 
-* **Objetivo** - Submeter uma transação direta com o uso de um cartão de crédito.
 * **Rules**
   * The online store register must be enable to send card data.
   * Send a TAG <authorize> with the value "3".
@@ -500,7 +647,7 @@ The recurrent authorization must be done in two ways: sending a token previously
 
 ### Recurrent authorization with card
 
-* **Purpose** - Submit a recurrent transaction using a credit card.** - Submeter uma transação recorrente com o uso de um cartão de crédito.
+* **Purpose** - Submit a recurrent transaction using a credit card.**
 * **Rules**
   * Send a TAG <autorizar> with value "4".
   * Valid just for lump sum.
@@ -544,6 +691,8 @@ This functionality makes easier to identify a card which has been replaced for a
 
 <aside class="notice">The "Renova Fácil" (Easy Renew) is only available on recurrent transactions. The Easy Renew effectiveness depends of correct usage of recurrent transactions properly signalized. Consult banks and card issuers participants with Cielo E-commerce Web Support.</aside>
 
+<aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+
 ### Authorization of a transaction previously created
 
 ```xml
@@ -560,6 +709,8 @@ This functionality makes easier to identify a card which has been replaced for a
 To the establishments that use the authentication process of authentication it's possible to request an authorization of transaction that stopped after the execution of this process. The message to perform this operation is "requisicao-autorizacao-tid", as described below:
 
 <aside class="notice">Requests to transactions that weren't submit to the authentication process or have been interrupted, because the holder made a mistake on the password won't be accepted.</aside>
+
+<aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
 |Element|Type|Mandatory|Size|Description|
 |--------|----|-----------|-------|---------|
@@ -618,12 +769,12 @@ To the establishments that use the authentication process of authentication it's
 </retorno-token>
 ```
 
-The return will be such as when a request has been concluded with success, or in case of failure.
+The return will be like: <retorno-token> when a request has been concluded with success, or in case of failure <error>.
 
 |Element|Type|Size|Description|
 |--------|----|-------|---------|
 |codigo-token|Alfanumérico|100|Code of token created|
-|status|Numérico|1|Status do Token: 0 – Bloqueado, 1 – Desbloqueado|
+|status|Numérico|1| Token Status: 0 – Locked, 1 – Unlocked|
 |numero-cartao-truncado|Alfanumérico|1..16|truncated-card-number|
 
 ### Direct Authorization via TOKEN
@@ -656,7 +807,7 @@ The return will be such as when a request has been concluded with success, or in
 * **Rules**
   * To send a TAG <autorizar> with the value "3".
   * Token must be unlocked
-  * Valid just for credit.
+  * Valid just for lump sum.
 
 ### Recurrent Authorization with TOKEN
 
@@ -901,7 +1052,7 @@ The debit product mandatorily requires an authenticated transaction, otherwise, 
 
 ## Capture
 
-An authorized transaction only creates the credit for a commercial establishment in case being captured. That's why all sales that the retailer want effective must be necessary realize the capture (or confirmation).
+An authorized transaction only creates the credit for a commercial establishment in case being captured. **That's why all sales that the retailer want effective must be necessary realize the capture (or confirmation).**
 
 For sales on Credit modality, this confirmation happens in two moments:
 
@@ -910,13 +1061,13 @@ For sales on Credit modality, this confirmation happens in two moments:
 
 In the first case, it's not necessary to send a request to capture, because it's done automatically by Cielo after the authorization of transaction. For this purpose, it's necessary configure the request of transaction defining the value "true" for a TAG <capturar>, according to section "Creating a transaction".
 
-In the second case, it's necessary to do a "later capture", through the new request to Cielo Webservice to confirm the transaction and receive the sale value. 
+In the second case, it's necessary to do a "later capture", through the new request to Cielo Webservice to confirm the transaction and receive the sale value.
 
 <aside class="warning">The maximum time to realize the later capture is 5 continuous days after the authorization date. For example, if an authorization happens on 10/12 at 15h20m45s, the limit for a capture will be at 15h20m45s on 15/12.</aside>
 
 <aside class="notice">This option doesn’t exist for debit modality: all debit transaction authorized is captured automatically.</aside>
 
-### CaTotal and Partial Capture
+### Total and Partial Capture
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -977,7 +1128,7 @@ The field of node `<captura>` are detailed below:
 
 The cancellation is used when the retailer decides for don't effective a purchase order, because the stock is not enough, because the customer gave up, ot any other reason. Its usage is necessary especially if the transaction has been captured, because there will be a debit on holder's invoice if it won't be cancelled.
 
-<aside class="notice">If the transaction is just authorized and the store eant to cancell it, the cancellation order it's not necessary, because after the timeout of capture expires, it will be cancelled automatically by the system.</aside>
+<aside class="notice">If the transaction is just authorized and the store want to cancel it, the cancellation order it's not necessary, because after the timeout of capture expires, it will be cancelled automatically by the system.</aside>
 
 ### Total and Partial Cancellation
 
@@ -998,19 +1149,19 @@ The cancellation is used when the retailer decides for don't effective a purchas
 * **Rules**
   * The total cancellation is valid for captured transaction, and also for authorized ones, the partial is valid just to the captured ones.
   * The cancellation timeout is until 120 current days to credit modality and D+0 to debt.
-  * The total cancellation, when realzed with success changes the transaction status to "9-Cancelled", while the partial doesn't change the transaction status, keeping it as "6-Captured".
+  * The total cancellation, when realized with success changes the transaction status to "9-Cancelled", while the partial doesn't change the transaction status, keeping it as "6-Captured".
   * If the TAG `<valor>` doesn't be provided, the system will assume the total cancellation.
   * To Amex issuer it's available just the total cancellation.
   * To debit modality, doesn't exist the possibility of effective the partial cancellation.
   * **Transaction with boarding fees:**
-    * Captured transactions with the same authorization value (in other words, total capture), have the same treatment for total and partial cancellation, becaus de boarding fee value is fully cancelled.
+    * Captured transactions with the same authorization value (in other words, total capture), have the same treatment for total and partial cancellation, because the boarding fee value is fully cancelled.
 
 |Element|Type|Mandatory|Size|Description|
 |--------|----|-----------|-------|---------|
 |tid|Alfanumérico|Sim|1..40|Transaction identifier|
 |dados-ec.numero|Numérico|Sim|1..10|Store credential number|
 |dados-ec.chave|Alfanumérico|Sim|1..100|Store access key assigned by Cielo|
-|valor|Numérico|Opcional|1..12|Value to be cancelled. If not being informed, it will be a total concellation.|
+|valor|Numérico|Opcional|1..12|Value to be cancelled. **If not being informed, it will be a total concellation.**|
 
 #### Return
 
