@@ -131,6 +131,27 @@ From transaction creation, it can assume the following status:
 
 The transition of status can be realized through the message exchange between the store and Cielo, or automatically, for example, when an authorized transaction capture deadline expires.
 
+## Extended Validation Certificate
+
+The Extended Validation Certificate to web server offers authenticity and integrity of data in a website, providing to virtual store’s customers the guarantee of they are really accessing the website that they want and not a fraudster website.
+
+Specialized companies are responsible for doing the domain and, depending of the type of certificate, there is also a holder authority of domain.
+
+### What is Extended Validation Certificate?
+The Certificate EV has been launched recently on the market and ensure a higher level of security for virtual store customer.
+
+This is the largest reliability and when accessing https, the address line becomes green, giving more reliability to visitors on website.
+
+How to install the Extended Validation Certificate on the store server?
+
+It’s simple: you just need to install the next three archives at Trustedstore server. Cielo doesn’t offer support to Certificate installation. In case of you are not sure about doing a EV Certificate installation, then you have to be contacted by support of provider’ server.
+
+* [Root Certificate](/attachment/Raiz.crt)
+* [Intermediate Certificate](/attachment/Intermediaria.crt)
+* [Cielo E-Commerce Certificate](/attachment/ecommerce.cielo.com.br.crt)
+
+<aside class="notice"<a href="/attachment/cielo.sh">Linux Installer- cielo.sh</a> can help you with the installation. Use only the installer, if you know what you are doing. If you have any questions, get in touch with provider support of your server.</aside>
+
 # Creating transactions
 
 Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservice at Cielo with a XML message `<requisicao-transacao>`, which group of TAGS defines a transaction configuration:
