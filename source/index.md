@@ -1224,12 +1224,14 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
   * Disponível apenas para as bandeiras Visa, Mastercard e AmEx.
   * Produtos permitidos: somente crédito.
   * O retorno da consulta ao AVS é separado em dois itens: CEP e endereço.
+  * Em caso de erro no formato esperado para os campos do AVS, os dados enviados serão desconsiderados mas a transação seguirá o fluxo de autorização.
   * Cada um deles pode ter os seguintes valores:
     * C – Confere;
     * N – Não confere;
     * I – Indisponível;
     * T – Temporariamente indisponível;
     * X – Serviço não suportado para esta Bandeira.
+    * E - Erro no AVS 
   * O nó contendo o XML do AVS deve estar encapsulado pelo termo “CDATA”, para evitar problemas com o parser da requisição.
   * É necessário que todos os campos contidos no nó AVS sejam preenchidos.
   * Necessário habilitar a opção do AVS no cadastro. Para habilitar a opção AVS no cadastro ou consultar os bancos participantes, entre em contato com o Suporte Web Cielo E-commerce.
