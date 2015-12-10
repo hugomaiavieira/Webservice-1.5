@@ -1336,6 +1336,8 @@ O cancelamento é utilizado quando o lojista decide não efetivar um pedido de c
   * O cancelamento total é válido tanto para transações capturadas, como autorizadas; o parcial é válido apenas para as capturadas.
   * O prazo de cancelamento é de até 300 dias para a modalidade crédito e D+0 para débito.
   * O cancelamento total, quando realizado com sucesso, altera o status da transação para “9 – Cancelada”, enquanto que o parcial não altera o status da transação, mantendo-a como “6 – Capturada”.
+  * Em caso de mensageria de cancelamento na versão 1.6.1 (esta versão é exclusiva para cancelamento), o status de cancelamento parcial será diferente, ou seja: Se cancelado com sucesso, retorna Status 9. Caso ocorra erro no cancelamento parcial, o código de retorno será Status 6. Estas regras aplicam-se apenas para cancelamento parcial.
+  * Não utilize a versão 1.6.1 para envio de transações. Ela é exclusiva para cancelamento.
   * Caso a TAG `<valor>` não seja fornecida, o sistema assumirá um cancelamento total.
   * Para bandeira AMEX está disponível apenas o cancelamento total.
   * Para a modalidade débito, não existe a possibilidade de efetuar cancelamento parcial.
