@@ -1292,7 +1292,7 @@ The cancellation is used when the retailer decides for don't effective a purchas
   * The total cancellation is valid for captured transaction, and also for authorized ones, the partial is valid just to the captured ones.
   * The cancellation timeout is until 120 current days to credit modality and D+0 to debt.
   * The total cancellation, when realized with success changes the transaction status to "9-Cancelled", while the partial doesn't change the transaction status, keeping it as "6-Captured".
-  * In case of XML version 1.6.1 (this version is only for cancellation), the status of partial cancellation will be diferente: If cancellation OK, the code of status will be 9. In case of error on partial cancellation, the code of status will be 6. This rules are only for partial cancellation
+  * In case of XML version 1.6.1 (this version is only for cancellation), the status of partial cancellation will be different: If cancellation OK, the code of status will be 9. In case of error on partial cancellation, the code of status will be 6. This rules are only for partial cancellation
   * Do not use the version 1.6.1 to send transactions. This versions is only to cancellation.
   * If the TAG `<valor>` doesn't be provided, the system will assume the total cancellation.
   * To Amex issuer it's available just the total cancellation.
