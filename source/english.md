@@ -1178,14 +1178,12 @@ The debit product mandatorily requires an authenticated transaction, otherwise, 
   * Available just for Visa, Mastercard and Amex issuers.
   * Products allowed: only credit.
   * The consult returned to AVS is separated in two itens: CEP and address.
-  * In case of XML version 1.6.2 and with errors on pattern expected for AVS fields (example: CEP with more than 9 characters), the AVS fields will be ignored and the transaction will be considered on authorization flow
   * Each one can have the values following:
     * C- Check;
     * N- Not check;
     * U - unavailable
     * T - Temporarily unavailable
     * X - Service doesn’t supported by this card issuer
-    * E - Error on AVS Fields
   * The node containing the XML of AVS must be encapsulated by "CDATA" term, to avoid problems with the parter of request.
   * All fields contained AVS node must be filled.
   * It's necessary enable the option AVS on the register. To enable an option AVS on the register or consult the participant banks please, contact Cielo E-commerce Web Support..
