@@ -1224,7 +1224,7 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
   * Disponível apenas para as bandeiras Visa, Mastercard e AmEx.
   * Produtos permitidos: somente crédito.
   * O retorno da consulta ao AVS é separado em dois itens: CEP e endereço.
-  * Em caso de erro no formato esperado para os campos do AVS, os dados enviados serão desconsiderados mas a transação seguirá o fluxo de autorização.
+  * Em caso de mensageria com versão 1.6.2  e com caso de erro no formato esperado para os campos do AVS (exemplo: CEP com mais que 9 caracteres), os dados enviados serão desconsiderados mas a transação seguirá o fluxo de autorização.
   * Cada um deles pode ter os seguintes valores:
     * C – Confere;
     * N – Não confere;
