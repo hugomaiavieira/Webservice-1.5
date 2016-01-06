@@ -2391,6 +2391,8 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <li>The total cancellation is valid for captured transaction, and also for authorized ones, the partial is valid just to the captured ones.</li>
 <li>The cancellation timeout is until 120 current days to credit modality and D+0 to debt.</li>
 <li>The total cancellation, when realized with success changes the transaction status to &ldquo;9-Cancelled&rdquo;, while the partial doesn&rsquo;t change the transaction status, keeping it as &ldquo;6-Captured&rdquo;.</li>
+<li>In case of XML version 1.6.1 (this version is only for cancellation), the status of partial cancellation will be different: If cancellation OK, the code of status will be 9. In case of error on partial cancellation, the code of status will be 6. This rules are only for partial cancellation</li>
+<li>Do not use the version 1.6.1 to send transactions. This versions is only to cancellation.</li>
 <li>If the TAG <code class="prettyprint">&lt;valor&gt;</code> doesn&rsquo;t be provided, the system will assume the total cancellation.</li>
 <li>To Amex issuer it&rsquo;s available just the total cancellation.</li>
 <li>To debit modality, doesn&rsquo;t exist the possibility of effective the partial cancellation.</li>
