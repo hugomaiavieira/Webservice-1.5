@@ -13,7 +13,7 @@ The purpose of this documentation is to orientate the developer about how integr
 
 The integration mechanism with Cielo E-commerce is simple, so that are necessary only an intermediate knowledge in programming language for Web, HTTP/HTTP requisitions and handling XML archive to implant Cielo E-commerce solution with success.
 
-Importantly to use this platform, the website must comply with safety rules or use the PCI certification. For questions about web security, please send email to: [e-seg@cielo.com.br](mailto:e-seg@cielo.com.br)
+Importantly to use this platform, the website must comply with safety rules or use the PCI certification. For questions about web security, please send email to: [Segurança Web](mailto:e-seg@cielo.com.br).
 
 After conclude the registration and receive the instructions, you need to develop the integration using this documentation as a guide. Once the integration is completed, it’s necessary to fill the homologation form fully and then send it to Cielo E-commerce Web Support that will inform the secure key to the establishment.
 
@@ -340,14 +340,14 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |gerar-token|Boolean|optional|n/a|`true` ou `false`. Define if the current transaction must create an associate token to card.|
 |avs#avs|alphanumeric|optional|n/a|String containing a XML block, encapsulated by CDATA, containing required information to realized a service consult.|
 
-### dados-ec
+### data-ec
 
 |Element|Type|Mandatory|Size|Description|
 |--------|----|-----------|-------|---------|
 |numero|numeric|Yes|1..20|Affiliation number of Store with Cielo.|
 |chave|alphanumeric|Yes|1..100|Store's access key attributed by Cielo.|
 
-### dados-portador
+### data-carrier
 
 |Element|Type|Mandatory|Size|Description|
 |--------|----|-----------|-------|---------|
@@ -358,7 +358,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |nome-portador|alphanumeric|Opcional|0..50|Holder name|
 |token|Alfanumérico|Conditional|0..100|Token must be used in replacement to card data to direct authorization or recurrent. It's not allowed to send a token with the card information in the same transaction.|
 
-### dados-pedido
+### data-order
 
 |Element|Type|Mandatory|Size|Description|
 |--------|----|-----------|-------|---------|
@@ -373,7 +373,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 
 <aside class="notice">The customer register will be enable to transact only with REAL currency, in case you need more information, contact the service center, commercial manager or Cielo E-commerce Web Support.</aside>
 
-### forma-pagamento
+### payment-method
 
 |Element|Type|Mandatory|Size|Description|
 |--------|----|-----------|-------|---------|
@@ -498,7 +498,6 @@ When there is authentication, the flux to execute an authorization happens in tw
     2. sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (`<requisicao-transacao>`)
         1. access (url-return) - the holder's browser access the URL on store environment, where we recommend that you have a consult request via TID to Cielo Web Service.
 
-
 ### Notes
 
 * Only on first redirection (1.2: send Redirect()) is Online Store responsability.
@@ -565,7 +564,6 @@ Looking at the diagram of section [Transaction](# transaction), you can see that
   </autenticacao>
 </transacao>
 ```
-
 Just the "node" fields `<autenticacao>` are listed on the table below:
 
 |Elemento|Tipo|Tamanho|Descrição|
@@ -701,12 +699,15 @@ The errors that may appear in the XML message through the TAG '<error>' are arra
 | Carrier not authenticated successfully. | 7 | 0 | n / a | n / a |
 | The store chose to allow bypassing the authentication.| 7 | 0 | 0 | 7 |
 
-
 # Operations and configurations
 
 ## Creating an authorization of transaction
 
 The request for an authorization is the main operation of Cielo E-commerce, because it's through it, that a sale can be concreted and the sale process can be finished. The authorization has a sequence of configuration that can be customized, besides the functionalities that have value to customer and retailers.
+
+<aside class="notice">For the response codes of the authorization, consult the Directory of Response Codes of Authorization  os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)</aside>
+
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
 ## Direct authorization
 
@@ -742,7 +743,6 @@ The direct authorization is characterized for being a transaction without authen
 ### Traditional
 
 * **Purpose** - Submit a direct transaction using a credit card.
-
 * **Rules**
   * The online store register must be enable to send card data.
   * Send a TAG <authorize> with the value "3".
@@ -785,11 +785,13 @@ The recurrent authorization must be done in two ways: sending a token previously
 
 <aside class="notice">To know if your store is eligible to use a recurrent authorization, check with our service center or Cielo E-commerce Web Support.</aside>
 
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+
 ### Recurrent authorization with card
 
 * **Purpose** - Submit a recurrent transaction using a credit card.**
 * **Rules**
-  * Send a TAG <autorizar> with value "4".
+  * Send a TAG '<autorizar>' with value "4".
   * Valid just for lump sum.
 
 ### EASY RENEW (Renova Fácil):
@@ -832,6 +834,8 @@ This functionality makes easier to identify a card which has been replaced for a
 <aside class="notice">The "Renova Fácil" (Easy Renew) is only available on recurrent transactions. The Easy Renew effectiveness depends of correct usage of recurrent transactions properly signalized. Consult banks and card issuers participants with Cielo E-commerce Web Support.</aside>
 
 <aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
 ### Authorization of a transaction previously created
 
@@ -1373,6 +1377,8 @@ After conclude the development, the Homologation step will ensure that the imple
   * Name and technical email (responsible developer) by integration.
   * Credential number (at Cielo) of online store.
   * Legal name and fictitious name of online store.
+  * User and password to perform testing purchases.
+  * URL of store logo on GIF format and size of 112X25 pixels.
 
 <aside class="notice">The logo image must be hosted in a safety environment (HTTP), otherwise the customer will receive security notification that can culminate on shopping abandonment.</aside>
 
@@ -1381,6 +1387,7 @@ In response, Cielo will return the valid key on production environment. Therefor
 * Webservice interact: tests with the connection that you use.
 * Visual integration: round trip of Cielo flow (an alternative flow must be considered).
 * Correct payment modalities: tests with possible combination of payment.
+* Payment methods: testing with the possible combination of payment. 
 
 At this moment, you have to consider the environment: [https://ecommerce.cielo.com.br/servicos/ecommwsec.do](https://ecommerce.cielo.com.br/servicos/ecommwsec.do)
 
@@ -1404,7 +1411,7 @@ For Mastercard, the security program is SDP (Site Data Protection) PCI. For more
 
 Moreover, once requests are attended, at the credential (register) on e-commerce website, must be mentioned the option for reading the card from your own store.
 
-Digital Certificate
+## Digital Certificate
 
 In some environment is necessary extract the Digital Certificate that the Cielo E-commerce application uses to be installed on TrustStore of customer, specially in Java and PHP environments.
 
@@ -1429,29 +1436,3 @@ International Program of Visa allows the customer authentication at the purchase
 Secure Code Program (Mastercard)
 
 International Program of Mastercard allows the customer authentication at the purchase moment on e-commerce environment. Visit: [http://www.verifiedbyvisa.com.br/](http://www.verifiedbyvisa.com.br/) to more information.
-
-# Appendix
-
-## Transaction statuses
-
-|Status|Code|
-|------|------|
-|Created transaction|0|
-|Transaction in progress|1|
-|Authenticated transaction|2|
-|Unauthenticated transaction|3|
-|Authorized transaction|4|
-|Unauthorized transaction|5|
-|Transaction captured|6|
-|Transaction in authentication|10|
-|Transaction in cancellation|12|
-
-## ECI
-
-|Authentication result|Visa|Mastercard|Aura|Other|
-|---------------------|----|----------|----|-----|
-|Holder identified with success.|5|2|n/d|n/d|
-|Holder didn't authentication, because the emitter didn't provided authentication mechanisms.|6|1|n/d|n/d|
-|Holder doesn't authenticated with success, because of unexpected technical error.|7|1|n/d|n/d|
-|Holder doesn't authenticated with success.|70|n/d|n/d|
-|The store has chosen authorize without pass for the authentication.|7|0|0|7|
