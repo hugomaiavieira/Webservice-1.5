@@ -4,6 +4,9 @@ title: Webservice integration 1.5
 language_tabs:
   - xml: XML
 
+toc_footers: 
+  - <a href='/Webservice-1.5-Processamento-em-lote/english.html'>Batch Processing</a>
+
 search: true
 ---
 
