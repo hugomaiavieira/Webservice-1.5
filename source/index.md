@@ -24,7 +24,7 @@ Após a conclusão do credenciamento e recebimento das instruções é preciso d
 Por fim, após o término do desenvolvimento, é preciso dar início à homologação junto à Cielo
 para iniciar a operação no ambiente de produção.
 
-<aside class="notice">Veja a seção [Homologação](#Homologacao) para instruções sobre o processo de homologação</aside>
+<aside class="notice">Veja a seção <a href="#Homologacao">Homologação</a> para instruções sobre o processo de homologação</aside>
 
 ## Suporte Cielo
 
