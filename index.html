@@ -82,7 +82,7 @@
         </div>
         <h2 class="toc-footer-title">Materiais complementares</h2>
         <ul class="toc-footer">
-            <li><a href='/Boas-praticas-de-ecommerce/'>Boas práticas de E-Commerce</a></li>
+            <li><a href='/Boas-praticas-de-eCommerce/'>Boas práticas de eCommerce</a></li>
             <li><a href='/Webservice-1.5-FAQ'>Perguntas frequentes</a></li>
             <li><a href='/Webservice-1.5-Processamento-em-lote/'>Processamento em lote</a></li>
         </ul>
@@ -101,9 +101,9 @@
 
 <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a solução Webservice da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.</p>
 
-<p>O mecanismo de integração com o Cielo E-commerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos XML, são necessários para implantar a solução Cielo E-commerce com sucesso. É importante destacar para utilizar essa plataforma, o website deve estar em confirmidade com regras de segurança ou utilizar a certificação PCI. Para dúvidas sobre segurança web, favor encaminhar email para: <a href="mailto:e-seg@cielo.com.br">Segurança Web</a>.</p>
+<p>O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos XML, são necessários para implantar a solução Cielo eCommerce com sucesso. É importante destacar para utilizar essa plataforma, o website deve estar em confirmidade com regras de segurança ou utilizar a certificação PCI. Para dúvidas sobre segurança web, favor encaminhar email para: <a href="mailto:e-seg@cielo.com.br">Segurança Web</a>.</p>
 
-<p>Após a conclusão do credenciamento e recebimento das instruções é preciso desenvolver a integração utilizando como guia este manual. Assim que a integração estiver concluída, é necessário preencher completamente o formulário de homologação e enviá-lo para o Suporte Web do Cielo E-commerce que informará ao estabelecimento a chave de segurança.</p>
+<p>Após a conclusão do credenciamento e recebimento das instruções é preciso desenvolver a integração utilizando como guia este manual. Assim que a integração estiver concluída, é necessário preencher completamente o formulário de homologação e enviá-lo para o Suporte Web do Cielo eCommerce que informará ao estabelecimento a chave de segurança.</p>
 
 <p>Por fim, após o término do desenvolvimento, é preciso dar início à homologação junto à Cielo
 para iniciar a operação no ambiente de produção.</p>
@@ -121,14 +121,14 @@ para iniciar a operação no ambiente de produção.</p>
 
 <ul>
 <li>Opção 1 – <em>Suporte técnico;</em></li>
-<li>Opção 2 – <em>Credenciamento E-commerce.</em></li>
+<li>Opção 2 – <em>Credenciamento eCommerce.</em></li>
 </ul></li>
-<li>Email: <a href="mailto:cieloecommerce@cielo.com.br">cieloecommerce@cielo.com.br</a></li>
+<li>Email: <a href="mailto:cieloeCommerce@cielo.com.br">cieloeCommerce@cielo.com.br</a></li>
 </ul>
 
 <h2 id="glossário">Glossário</h2>
 
-<p>Para facilitar o entendimento, listamos abaixo um pequeno glossário com os principais termos relacionados ao E-commerce, ao mercado de cartões e adquirencia:</p>
+<p>Para facilitar o entendimento, listamos abaixo um pequeno glossário com os principais termos relacionados ao eCommerce, ao mercado de cartões e adquirencia:</p>
 
 <ul>
 <li><strong>Autenticação</strong>: processo para assegurar que o comprador é realmente aquele quem diz ser (portador legítimo), geralmente ocorre no banco emissor com uso de um token digital ou cartão com chaves de segurança.</li>
@@ -142,10 +142,10 @@ para iniciar a operação no ambiente de produção.</p>
 <li><strong>Gateway de pagamentos</strong>: Empresa responsável pelo integração técnica e processamento das transações.</li>
 <li><strong>Número de credenciamento</strong>: é um número identificador que o lojista recebe após seu credenciamento junto à Cielo.</li>
 <li><strong>Portador</strong>: é a pessoa que tem o porte do cartão no momento da venda.</li>
-<li><strong>SecureCode</strong>: programa internacional da Mastercard para possibilitar a autenticação do comprador no momento de uma compra em ambiente E-commerce.</li>
-<li><strong>TID (Transaction Identifier)</strong>: código composto por 20 caracteres que identificada unicamente uma transação Cielo E-commerce.</li>
+<li><strong>SecureCode</strong>: programa internacional da Mastercard para possibilitar a autenticação do comprador no momento de uma compra em ambiente eCommerce.</li>
+<li><strong>TID (Transaction Identifier)</strong>: código composto por 20 caracteres que identificada unicamente uma transação Cielo eCommerce.</li>
 <li><strong>Transação</strong>: é o pedido de compra do portador do cartão na Cielo.</li>
-<li><strong>VBV (Verified by Visa)</strong>: Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente E-commerce.</li>
+<li><strong>VBV (Verified by Visa)</strong>: Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.</li>
 </ul>
 
 <aside class="notice">Acesse http://www.mastercard.com.br/securecode para mais detalhes sobre o SecureCode.</aside>
@@ -256,7 +256,7 @@ para iniciar a operação no ambiente de produção.</p>
 <ul>
 <li><a href="attachment/Raiz.crt">Certificado Raiz</a></li>
 <li><a href="attachment/Intermediaria.crt">Certificado Intermediária</a></li>
-<li><a href="attachment/ecommerce.cielo.com.br.crt">Certificado E-Commerce Cielo</a></li>
+<li><a href="./attachment/eCommerce.cielo.com.br.crt">Certificado E-Commerce Cielo</a></li>
 </ul>
 
 <aside class="notice">Caso seu servidor seja uma distribuição Linux e você tenha familiaridade e acesso ssh, então o <a href="./attachment/cielo.sh">Instalador Linux - cielo.sh</a> poderá ajudá-lo com a instalação. <strong>Apenas utilize o instalador se você souber o que está fazendo</strong>. Na dúvida, entre em contato com o suporte do fornecedor do seu servidor.</aside>
@@ -280,7 +280,7 @@ para iniciar a operação no ambiente de produção.</p>
 <ul>
 <li><a href="attachment/Raiz.crt">Certificado Raiz</a></li>
 <li><a href="attachment/Intermediaria.crt">Certificado Intermediária</a></li>
-<li><a href="attachment/ecommerce.cielo.com.br.crt">Certificado E-Commerce Cielo</a></li>
+<li><a href="./attachment/eCommerce.cielo.com.br.crt">Certificado E-Commerce Cielo</a></li>
 </ul>
 
 <h4 id="2o-passo:">2o Passo:</h4>
@@ -325,7 +325,7 @@ para iniciar a operação no ambiente de produção.</p>
 
 <h4 id="5o-passo:">5o Passo:</h4>
 
-<p>No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “ecommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.</p>
+<p>No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “eCommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.</p>
 
 <p><img alt="Instalar IE e GC" src="images/certificado-instalar-ie-gc-5.jpg" /></p>
 
@@ -364,7 +364,7 @@ para iniciar a operação no ambiente de produção.</p>
 <p>Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:</p>
 
 <ul>
-<li><strong>Email:</strong> <a href="mailto:cieloecommerce@cielo.com.br">cieloecommerce@cielo.com.br</a></li>
+<li><strong>Email:</strong> <a href="mailto:cieloeCommerce@cielo.com.br">cieloeCommerce@cielo.com.br</a></li>
 <li><strong>Capitais:</strong> 4002-9700</li>
 <li><strong>Demais Cidades:</strong> 0800 570 1700</li>
 </ul>
@@ -373,9 +373,9 @@ para iniciar a operação no ambiente de produção.</p>
 
 <h1 id="visão-geral">Visão Geral</h1>
 
-<p>Neste manual será apresentado uma visão geral do Cielo E-commerce e o mecanismo tecnológico no formato de integração Webservice (chamado nas versões anteriores de Buy Page Loja).</p>
+<p>Neste manual será apresentado uma visão geral do Cielo eCommerce e o mecanismo tecnológico no formato de integração Webservice (chamado nas versões anteriores de Buy Page Loja).</p>
 
-<p>Para informações sobre a integração no formato do Checkout Cielo (chamado nas versões anteriores de Buy Page Cielo ou Solução Integrada) acesse: <a href="https://www.cielo.com.br/ecommerce">https://www.cielo.com.br/ecommerce</a>.</p>
+<p>Para informações sobre a integração no formato do Checkout Cielo (chamado nas versões anteriores de Buy Page Cielo ou Solução Integrada) acesse: <a href="https://www.cielo.com.br/eCommerce">https://www.cielo.com.br/eCommerce</a>.</p>
 
 <p>Para todo pedido de compra, a meta é efetivá-la em uma venda. Uma venda com cartão pode ser caracterizado em uma transação autorizada e capturada.</p>
 
@@ -383,9 +383,9 @@ para iniciar a operação no ambiente de produção.</p>
 
 <h2 id="características-da-solução">Características da solução</h2>
 
-<p>A solução Webservice da plataforma Cielo E-commerce foi desenvolvida com tecnologia XML, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.</p>
+<p>A solução Webservice da plataforma Cielo eCommerce foi desenvolvida com tecnologia XML, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.</p>
 
-<p>Entre outras características, os atributos que mais se destacam na plataforma Cielo E-commerce:</p>
+<p>Entre outras características, os atributos que mais se destacam na plataforma Cielo eCommerce:</p>
 
 <ul>
 <li><strong>Ausência de aplicativos proprietários</strong>: não é necessário instalar aplicativos no ambiente da loja virtual em nenhuma hipótese.</li>
@@ -402,7 +402,7 @@ para iniciar a operação no ambiente de produção.</p>
 <li>O cadastro da loja deve estar ativo junto à Cielo.</li>
 <li>Deve-se definir um timeout adequado nas requisições HTTP à Cielo; recomendamos 30 segundos.</li>
 <li>O certificado Root da entidade certificadora (CA) de nosso Web Service deve estar cadastrado na Truststore a ser utilizada. Como nossa certificadora é de ampla aceitação no mercado, é provável que ela já esteja registrada na Truststore do próprio sistema operacional.</li>
-<li>Disponibilizamos no kit de integração o arquivo ecommerce.xsd para facilitar a validação das restrições de formato, tamanho dos campos, tipos e domínios de dados.</li>
+<li>Disponibilizamos no kit de integração o arquivo eCommerce.xsd para facilitar a validação das restrições de formato, tamanho dos campos, tipos e domínios de dados.</li>
 <li>Em todas as mensagens a data/hora deverá seguir o formato: <code class="prettyprint">aaaa-MM-ddTHH24:mm:ss</code>. Exemplo: 2011-12-21T11:32:45.</li>
 <li>Os valores monetários são sempre tratados como valores inteiros, sem representação das casas decimais, sendo que os dois últimos dígitos são considerados como os centavos. Exemplo: R$ 1.286,87 é representado como 128687; R$ 1,00 é representado como 100.</li>
 </ul>
@@ -421,7 +421,7 @@ para iniciar a operação no ambiente de produção.</p>
 <li>O retorno em formato XML, que pode ser: <code class="prettyprint">&lt;transacao/&gt;</code>, <code class="prettyprint">&lt;retorno-token&gt;</code> ou <code class="prettyprint">&lt;erro/&gt;</code>.</li>
 </ul>
 <pre><code class="highlight plaintext">POST /servicos/ecommwsec.do HTTP/1.1
-Host: ecommerce.cielo.com.br
+Host: eCommerce.cielo.com.br
 Content-Type: application/x-www-form-urlencoded
 Content-Length: length
 mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura id="3e22bdd0-2017-4756-80b7-35a532e6c973" versao="1.2.1"&gt;&lt;tid&gt;10069930690101012005&lt;/tid&gt;&lt;dados-ec&gt;&lt;numero&gt;1006993069&lt;/numero&gt;&lt;chave&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3&lt;/chave&gt;&lt;/dados-ec&gt;&lt;valor&gt;3880&lt;/valor&gt;&lt;/requisicao-captura&gt;
@@ -429,7 +429,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h2 id="transação">Transação</h2>
 
-<p>O elemento central do Cielo E-commerce é a transação, criada a partir de uma requisição HTTP ao Webservice da Cielo. A identificação única de uma transação na Cielo é feita através do campo TID, que está presente no retorno das mensagens de autorização. Esse campo é essencial para realizar consultas, capturas e cancelamentos.</p>
+<p>O elemento central do Cielo eCommerce é a transação, criada a partir de uma requisição HTTP ao Webservice da Cielo. A identificação única de uma transação na Cielo é feita através do campo TID, que está presente no retorno das mensagens de autorização. Esse campo é essencial para realizar consultas, capturas e cancelamentos.</p>
 
 <p>A partir da criação de uma transação, ela pode assumir os seguintes status:</p>
 
@@ -439,7 +439,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h1 id="criando-transações">Criando transações</h1>
 
-<p>Todas as transações no Cielo E-commerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML <code class="prettyprint">&lt;requisicao-transacao&gt;</code>, cujo conjunto de TAGS determinam as configurações de uma transação.</p>
+<p>Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML <code class="prettyprint">&lt;requisicao-transacao&gt;</code>, cujo conjunto de TAGS determinam as configurações de uma transação.</p>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;dados-ec&gt;</span>
@@ -488,7 +488,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
 </code></pre>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/eCommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 <h3 id="raiz">raiz</h3>
 
@@ -724,7 +724,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 </tr>
 </tbody></table>
 
-<aside class="notice">O cadastro do cliente está habilitado para transacionar apenas com a moeda REAL, caso necessite de mais informações, contate a central de relacionamento, seu gerente comercial ou o Suporte Web Cielo E-commerce.</aside>
+<aside class="notice">O cadastro do cliente está habilitado para transacionar apenas com a moeda REAL, caso necessite de mais informações, contate a central de relacionamento, seu gerente comercial ou o Suporte Web Cielo eCommerce.</aside>
 
 <h3 id="forma-pagamento">forma-pagamento</h3>
 
@@ -797,7 +797,7 @@ inferior a R$5,00. Caso contrário a transação será negada.</aside>
 
 <p>O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo <code class="prettyprint">&lt;transacao&gt;</code>. Basicamente, ela é composta pelos dados do pedido e dados da configuração da transação.</p>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"af32f93c-5e9c-4f44-9478-ccc5aca9319e"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"af32f93c-5e9c-4f44-9478-ccc5aca9319e"</span> <span class="na">xmlns=</span><span class="s">"http://eCommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;tid&gt;</span>100699306908642F1001<span class="nt">&lt;/tid&gt;</span>
     <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
     <span class="nt">&lt;dados-pedido&gt;</span>
@@ -886,9 +886,9 @@ inferior a R$5,00. Caso contrário a transação será negada.</aside>
 
 <p>Por fim, há outro tipo de retorno que é empregado toda vez que uma requisição não pode ser executada, seja porque era inválida ou por ter ocorrido falha no seu processamento. Nesse cenário o nó raiz do XML de resposta é do tipo <code class="prettyprint">&lt;erro&gt;</code>.</p>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;erro</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;erro</span> <span class="na">xmlns=</span><span class="s">"http://eCommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;codigo&gt;</span>001<span class="nt">&lt;/codigo&gt;</span>
-  <span class="nt">&lt;mensagem&gt;</span><span class="cp">&lt;![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://ecommerce.cbmp. com.br: '&lt;xml-fragment/&gt;]]&gt;</span>
+  <span class="nt">&lt;mensagem&gt;</span><span class="cp">&lt;![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://eCommerce.cbmp. com.br: '&lt;xml-fragment/&gt;]]&gt;</span>
   <span class="nt">&lt;/mensagem&gt;</span>
 <span class="nt">&lt;/erro&gt;</span>
 </code></pre>
@@ -896,7 +896,7 @@ inferior a R$5,00. Caso contrário a transação será negada.</aside>
 <p>Quando a transação é inválida, podemos classificar os erros em dois tipos:</p>
 
 <ul>
-<li><strong>Erros sintáticos</strong>: ocorrem quando a mensagem XML não respeita as regras definidas no arquivo ecommerce.xsd. Por exemplo, uma letra em um campo numérico, ou a ausência de um valor obrigatório;</li>
+<li><strong>Erros sintáticos</strong>: ocorrem quando a mensagem XML não respeita as regras definidas no arquivo eCommerce.xsd. Por exemplo, uma letra em um campo numérico, ou a ausência de um valor obrigatório;</li>
 <li><strong>Erros semânticos</strong>: ocorrem quando uma requisição solicita uma operação não suportada para determinada transação. Por exemplo, tentar capturar uma transação não autorizada, ou ainda, cancelar uma transação já cancelada.</li>
 </ul>
 
@@ -904,7 +904,7 @@ inferior a R$5,00. Caso contrário a transação será negada.</aside>
 
 <h2 id="autenticação-e-nível-de-segurança">Autenticação e nível de segurança</h2>
 
-<p>Dependendo da bandeira escolhida, as transações na plataforma Cielo E-commerce podem ser configuradas para serem autenticadas no banco emissor do cartão (portador), a fim de garantir o nível maior de segurança ao lojista. A autenticação não é feita automaticamente entre sistemas, deste modo é necessário que o comprador interaja no processo, conforme será visto a seguir.</p>
+<p>Dependendo da bandeira escolhida, as transações na plataforma Cielo eCommerce podem ser configuradas para serem autenticadas no banco emissor do cartão (portador), a fim de garantir o nível maior de segurança ao lojista. A autenticação não é feita automaticamente entre sistemas, deste modo é necessário que o comprador interaja no processo, conforme será visto a seguir.</p>
 
 <p>Ela acontece sempre no site do banco (Internet Banking), utilizando mecanismos e tecnologias independentes da Cielo. Dessa forma, é possível que o banco utilize token eletrônico e senha, enquanto outro utilize os cartões de senhas ou CPF para autenticar uma transação.</p>
 
@@ -989,7 +989,7 @@ passarão pelo status “Autenticada” ou “Não autenticada”. Por consequê
 
 <p>Observando o diagrama da seção <a href="#transação">Transação</a>, é possível observar que todas as transações passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó <code class="prettyprint">&lt;autenticacao&gt;</code> no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:</p>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"5e445904-963e-4fa1-95cd-55ef88c289cc"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"5e445904-963e-4fa1-95cd-55ef88c289cc"</span> <span class="na">xmlns=</span><span class="s">"http://eCommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;tid&gt;</span>10069930690864281001<span class="nt">&lt;/tid&gt;</span>
     <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
     <span class="nt">&lt;dados-pedido&gt;</span>
@@ -1084,7 +1084,7 @@ passarão pelo status “Autenticada” ou “Não autenticada”. Por consequê
 
 <p>A seguir estão os códigos de resposta que respondem por 99% dos retornos gerados no processo de autorização. Os demais códigos existentes não estão listados pois ocorrem raramente ou em casos específicos. Para estes casos deve-se assumir que eles não são passíveis de retentativa.</p>
 
-<p>Caso tenha uma quantidade elevada de códigos de retorno que não está listado abaixo, entre em contato com o Suporte Web Cielo E-commerce.</p>
+<p>Caso tenha uma quantidade elevada de códigos de retorno que não está listado abaixo, entre em contato com o Suporte Web Cielo eCommerce.</p>
 
 <aside class="warning">As descrições abaixo são exclusivas para uso interno do estabelecimento comercial e não devem ser divulgadas para o portador do cartão.</aside>
 
@@ -1293,7 +1293,7 @@ passarão pelo status “Autenticada” ou “Não autenticada”. Por consequê
 <tr>
 <td>1</td>
 <td>Mensagem inválida</td>
-<td>A mensagem XML está fora do formato especificado pelo arquivo ecommerce.xsd</td>
+<td>A mensagem XML está fora do formato especificado pelo arquivo eCommerce.xsd</td>
 <td>Revisar as informações enviadas na mensagem XML frente às especificações</td>
 </tr>
 <tr>
@@ -1420,7 +1420,7 @@ passarão pelo status “Autenticada” ou “Não autenticada”. Por consequê
 <td>33</td>
 <td>Falha ao capturar</td>
 <td>Não foi possível realizar a captura</td>
-<td>Realizar nova tentativa. Persistindo, entrar em contato com o Suporte E-commerce e informar o TID da transação.</td>
+<td>Realizar nova tentativa. Persistindo, entrar em contato com o Suporte eCommerce e informar o TID da transação.</td>
 </tr>
 <tr>
 <td>34</td>
@@ -1450,7 +1450,7 @@ passarão pelo status “Autenticada” ou “Não autenticada”. Por consequê
 <td>42</td>
 <td>Falha ao cancelar</td>
 <td>Não foi possível realizar o cancelamento</td>
-<td>Realizar nova tentativa. Persistindo, entrar em contato com o Suporte E-commerce e informar o TID da transação.</td>
+<td>Realizar nova tentativa. Persistindo, entrar em contato com o Suporte eCommerce e informar o TID da transação.</td>
 </tr>
 <tr>
 <td>43</td>
@@ -1676,11 +1676,11 @@ passarão pelo status “Autenticada” ou “Não autenticada”. Por consequê
 
 <h2 id="criação-da-transação-de-autorização">Criação da Transação de Autorização</h2>
 
-<p>A requisição de autorização é a principal operação do Cielo E-commerce, pois é através dela que uma venda pode ser concretizada e finalizar o processo de venda. A autorização possui uma série de configurações que podem ser customizadas, além de funcionalidades que agregam valor ao lojista e seus consumidores.</p>
+<p>A requisição de autorização é a principal operação do Cielo eCommerce, pois é através dela que uma venda pode ser concretizada e finalizar o processo de venda. A autorização possui uma série de configurações que podem ser customizadas, além de funcionalidades que agregam valor ao lojista e seus consumidores.</p>
 
 <aside class="notice">Para os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/eCommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 <h2 id="autorização-direta">Autorização Direta</h2>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
@@ -1757,9 +1757,9 @@ passarão pelo status “Autenticada” ou “Não autenticada”. Por consequê
 
 <p>A autorização recorrente pode ser feita de duas formas: através do envio de um token previamente cadastrado, ou através de um cartão. A transação recorrente é praticamente igual à transação tradicional, as mudanças consistem nas regras que o emissor e a bandeira utilizam para autorizar ou negar uma transação. Outra diferença está relacionada ao Renova Fácil.</p>
 
-<aside class="notice">Para saber se sua loja é elegível a utilizar a autorização recorrente, consulte nossa central de relacionamento ou o Suporte Web Cielo E-commerce.</aside>
+<aside class="notice">Para saber se sua loja é elegível a utilizar a autorização recorrente, consulte nossa central de relacionamento ou o Suporte Web Cielo eCommerce.</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/eCommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 <h3 id="autorização-recorrente-com-cartão">Autorização recorrente com Cartão</h3>
 
@@ -1775,7 +1775,7 @@ passarão pelo status “Autenticada” ou “Não autenticada”. Por consequê
 
 <h3 id="renova-fácil">Renova Fácil</h3>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"d35b67189442"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://eCommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"d35b67189442"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>10069930690362461001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
   <span class="nt">&lt;dados-pedido&gt;</span>
@@ -1810,9 +1810,9 @@ passarão pelo status “Autenticada” ou “Não autenticada”. Por consequê
 
 <p><img alt="remova fácil" src="images/remova-facil.png" /></p>
 
-<aside class="notice">O Renova Fácil só está disponível para transações recorrentes. A efetividade do Renova Fácil depende do uso correto das transações recorrentes devidamente sinalizadas como tal. Consulte os bancos e bandeiras participantes com o Suporte Web Cielo E-commerce.</aside>
+<aside class="notice">O Renova Fácil só está disponível para transações recorrentes. A efetividade do Renova Fácil depende do uso correto das transações recorrentes devidamente sinalizadas como tal. Consulte os bancos e bandeiras participantes com o Suporte Web Cielo eCommerce.</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/eCommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 <h3 id="autorização-de-uma-transação-previamente-gerada">Autorização de uma transação previamente gerada</h3>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
@@ -1831,7 +1831,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <aside class="notice">Requisições para transações que não foram submetidas ao processo de autenticação ou foram interrompidas, pois o portador errou a senha não serão aceitas.</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/eCommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 <table><thead>
 <tr>
@@ -1893,7 +1893,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <aside class="warning">A transação feita via token não isenta o lojista do envio da informação de bandeira, portanto é necessário que o sistema do lojista (ou gateway) que armazenará os tokens também armazene a bandeira do cartão que foi tokenizado.</aside>
 
-<aside class="notice">Um token não utilizado por mais de um ano será automaticamente removido do banco de dados da Cielo. É possível realizar o bloqueio de um token específico para que este não seja mais usado. O bloqueio do token deve ser solicitado ao Suporte Web Cielo E-commerce.</aside>
+<aside class="notice">Um token não utilizado por mais de um ano será automaticamente removido do banco de dados da Cielo. É possível realizar o bloqueio de um token específico para que este não seja mais usado. O bloqueio do token deve ser solicitado ao Suporte Web Cielo eCommerce.</aside>
 
 <table><thead>
 <tr>
@@ -1950,7 +1950,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="retorno">Retorno</h3>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;retorno-token</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"57239017"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;retorno-token</span> <span class="na">xmlns=</span><span class="s">"http://eCommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"57239017"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;token&gt;</span>
     <span class="nt">&lt;dados-token&gt;</span>
       <span class="nt">&lt;codigo-token&gt;</span>TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=<span class="nt">&lt;/codigo-token&gt;</span>
@@ -2064,7 +2064,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="renova-fácil-com-token">Renova Fácil com Token</h3>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"d35b67189442"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://eCommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"d35b67189442"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>10069930690362461001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
   <span class="nt">&lt;dados-pedido&gt;</span>
@@ -2291,11 +2291,11 @@ das transações que pararam após a execução deste processo. A mensagem para 
 <li>X – Serviço não suportado para esta Bandeira.</li>
 <li>O nó contendo o XML do AVS deve estar encapsulado pelo termo “CDATA”, para evitar problemas com o parser da requisição.</li>
 <li>É necessário que todos os campos contidos no nó AVS sejam preenchidos.</li>
-<li>Necessário habilitar a opção do AVS no cadastro. Para habilitar a opção AVS no cadastro ou consultar os bancos participantes, entre em contato com o Suporte Web Cielo E-commerce.</li>
+<li>Necessário habilitar a opção do AVS no cadastro. Para habilitar a opção AVS no cadastro ou consultar os bancos participantes, entre em contato com o Suporte Web Cielo eCommerce.</li>
 </ul></li>
 </ul>
 
-<aside class="warning">Conforme contrato, este serviço adicional está sujeito a cobrança a partir do momento em que a consulta de AVS for solicitada. Para maiores informações, favor entrar em contato com a central de atendimento, seu gerente de contas ou o Suporte Web Cielo E-commerce.</aside>
+<aside class="warning">Conforme contrato, este serviço adicional está sujeito a cobrança a partir do momento em que a consulta de AVS for solicitada. Para maiores informações, favor entrar em contato com a central de atendimento, seu gerente de contas ou o Suporte Web Cielo eCommerce.</aside>
 
 <h2 id="captura">Captura</h2>
 
@@ -2348,7 +2348,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="retorno">Retorno</h3>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"0378c8cf4d"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://eCommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"0378c8cf4d"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>10069930690360EF1001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
@@ -2486,7 +2486,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h4 id="retorno">Retorno</h4>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"2c18f00a-3ff6-4c85-8865-a4fde599b2b2"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://eCommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"2c18f00a-3ff6-4c85-8865-a4fde599b2b2"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>100699306903613E1001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
@@ -2507,7 +2507,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h2 id="endpoint">Endpoint</h2>
 
-<p>Os testes de integração deverão ser realizados antes do início da homologação, durante o desenvolvimento (codificação) da solução. Para isso, deve-se considerar o seguinte ambiente como EndPoint do Webservice: <a href="https://qasecommerce.cielo.com.br/servicos/ecommwsec.do">https://qasecommerce.cielo.com.br/servicos/ecommwsec.do</a></p>
+<p>Os testes de integração deverão ser realizados antes do início da homologação, durante o desenvolvimento (codificação) da solução. Para isso, deve-se considerar o seguinte ambiente como EndPoint do Webservice: <a href="https://qaseCommerce.cielo.com.br/servicos/ecommwsec.do">https://qaseCommerce.cielo.com.br/servicos/ecommwsec.do</a></p>
 
 <aside class="warning">Toda a conexão aos serviços da Cielo deve ser feita através das URL’s divulgadas neste manual. A Cielo desaconselha fortemente a conexão direta via IP, uma vez que estes podem variar sem aviso prévio.</aside>
 
@@ -2628,7 +2628,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 <p><img alt="fluxo testes" src="images/fluxo-testes.png" /></p>
 
 <ol>
-<li>Finalização do Cadastro: nesta etapa o Cliente deve enviar um email para <a href="mailto:cieloecommerce@cielo.com.br">cieloecommerce@cielo.com.br</a>, solicitando a Chave de Produção. A mensagem deve conter as
+<li>Finalização do Cadastro: nesta etapa o Cliente deve enviar um email para <a href="mailto:cieloeCommerce@cielo.com.br">cieloeCommerce@cielo.com.br</a>, solicitando a Chave de Produção. A mensagem deve conter as
 seguintes informações, que irão completar o cadastro:
 
 <ul>
@@ -2654,13 +2654,13 @@ seguintes informações, que irão completar o cadastro:
 <li>Modalidades de pagamento: testes com as combinações possíveis de pagamento.</li>
 </ul>
 
-<p>Neste momento, deve-se considerar o ambiente: <a href="https://ecommerce.cielo.com.br/servicos/ecommwsec.do">https://ecommerce.cielo.com.br/servicos/ecommwsec.do</a></p>
+<p>Neste momento, deve-se considerar o ambiente: <a href="https://eCommerce.cielo.com.br/servicos/ecommwsec.do">https://eCommerce.cielo.com.br/servicos/ecommwsec.do</a></p>
 
 <aside class="notice">A integração da loja virtual deverá ser feita sempre através da URL acima e não por IP.</aside>
 
 <p>Os testes em produção devem ser feitos com cartões de propriedade da Loja ou cujo portador tenha autorizado seu uso, uma vez que neste ambiente existe compromisso financeiro sobre as transações realizadas.</p>
 
-<p>Ao término, uma nova solicitação deve ser enviada para cieloecommerce@cielo.com.br, para que a Cielo realize a homologação de fato. Um conjunto de testes será executado aprovar e negar transações. O resultado “HOMOLOGADO” é enviado por e-mail. Caso haja algum ponto que não permite a conclusão da homologação, a informação será igualmente enviada por email solicitando as correções necessárias.</p>
+<p>Ao término, uma nova solicitação deve ser enviada para cieloeCommerce@cielo.com.br, para que a Cielo realize a homologação de fato. Um conjunto de testes será executado aprovar e negar transações. O resultado “HOMOLOGADO” é enviado por e-mail. Caso haja algum ponto que não permite a conclusão da homologação, a informação será igualmente enviada por email solicitando as correções necessárias.</p>
 
 <h1 id="considerações-finais">Considerações Finais</h1>
 
@@ -2672,13 +2672,13 @@ seguintes informações, que irão completar o cadastro:
 
 <p>Para a Mastercard o programa de segurança é o SDP (Site Data Protection) PCI. Para maiores informações acesse: <a href="http://www.mastercard.com/us/sdp/index.html">http://www.mastercard.com/us/sdp/index.html</a>, ou entre em contato conosco.</p>
 
-<p>Ademais, atendidos os requisitos, no momento do credenciamento E-commerce deve ser mencionada a escolha por leitura do cartão na própria loja.</p>
+<p>Ademais, atendidos os requisitos, no momento do credenciamento eCommerce deve ser mencionada a escolha por leitura do cartão na própria loja.</p>
 
 <h2 id="certificado-digital">Certificado digital</h2>
 
-<p>Em alguns ambientes é preciso extrair o Certificado Digital que a aplicação do Cielo E-commerce utiliza para ser instalado na Trustedstore do cliente, especialmente em ambientes Java e PHP.</p>
+<p>Em alguns ambientes é preciso extrair o Certificado Digital que a aplicação do Cielo eCommerce utiliza para ser instalado na Trustedstore do cliente, especialmente em ambientes Java e PHP.</p>
 
-<p>Para obter o certificado, abra um browser e acesse <a href="http://ecommerce.cielo.com.br">http://ecommerce.cielo.com.br</a> e clique no ícone que exibe as informações sobre o certificado:</p>
+<p>Para obter o certificado, abra um browser e acesse <a href="http://eCommerce.cielo.com.br">http://eCommerce.cielo.com.br</a> e clique no ícone que exibe as informações sobre o certificado:</p>
 
 <p><strong>Google Chrome</strong>:</p>
 
@@ -2694,11 +2694,11 @@ seguintes informações, que irão completar o cadastro:
 
 <p>Programa <strong>Verified by Visa</strong> (Visa)</p>
 
-<p>Programa internacional da Visa para possibilitar a autenticação do comprador no momento de uma compra em ambiente E-commerce. Visite <a href="http://www.verifiedbyvisa.com.br/">http://www.verifiedbyvisa.com.br/</a> para maiores informações.</p>
+<p>Programa internacional da Visa para possibilitar a autenticação do comprador no momento de uma compra em ambiente eCommerce. Visite <a href="http://www.verifiedbyvisa.com.br/">http://www.verifiedbyvisa.com.br/</a> para maiores informações.</p>
 
 <p>Programa <strong>Secure Code</strong> (Mastercard)</p>
 
-<p>Programa internacional da Mastercard para possibilitar a autenticação do comprador no momento de uma compra em ambiente E-commerce. Visite <a href="http://www.mastercard.com/securecode">http://www.mastercard.com/securecode</a> para maiores informações.</p>
+<p>Programa internacional da Mastercard para possibilitar a autenticação do comprador no momento de uma compra em ambiente eCommerce. Visite <a href="http://www.mastercard.com/securecode">http://www.mastercard.com/securecode</a> para maiores informações.</p>
 
             </div>
             <div class="dark-box">
