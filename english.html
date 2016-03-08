@@ -80,6 +80,10 @@
         <ul class="search-results"></ul>
         <div id="toc">
         </div>
+        <h2 class="toc-footer-title">Materiais complementares</h2>
+        <ul class="toc-footer">
+            <li><a href='/Webservice-1.5-Processamento-em-lote/english.html'>Batch Processing</a></li>
+        </ul>
         <div class="links-footer">
             <ul class="link-list">
                 <li class="cielo"><a href="https://www.cielo.com.br/ecommerce">Cielo</a></li>
@@ -97,7 +101,7 @@
 
 <p>The integration mechanism with Cielo E-commerce is simple, so that are necessary only an intermediate knowledge in programming language for Web, HTTP/HTTP requisitions and handling XML archive to implant Cielo E-commerce solution with success.</p>
 
-<p>Importantly to use this platform, the website must comply with safety rules or use the PCI certification. For questions about web security, please send email to: <a href="mailto:e-seg@cielo.com.br">e-seg@cielo.com.br</a></p>
+<p>Importantly to use this platform, the website must comply with safety rules or use the PCI certification. For questions about web security, please send email to: <a href="mailto:e-seg@cielo.com.br">Segurança Web</a>.</p>
 
 <p>After conclude the registration and receive the instructions, you need to develop the integration using this documentation as a guide. Once the integration is completed, it’s necessary to fill the homologation form fully and then send it to Cielo E-commerce Web Support that will inform the secure key to the establishment.</p>
 
@@ -565,7 +569,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 </tr>
 </tbody></table>
 
-<h3 id="dados-ec">dados-ec</h3>
+<h3 id="data-ec">data-ec</h3>
 
 <table><thead>
 <tr>
@@ -592,7 +596,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 </tr>
 </tbody></table>
 
-<h3 id="dados-portador">dados-portador</h3>
+<h3 id="data-carrier">data-carrier</h3>
 
 <table><thead>
 <tr>
@@ -647,7 +651,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 </tr>
 </tbody></table>
 
-<h3 id="dados-pedido">dados-pedido</h3>
+<h3 id="data-order">data-order</h3>
 
 <table><thead>
 <tr>
@@ -718,7 +722,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <aside class="notice">The customer register will be enable to transact only with REAL currency, in case you need more information, contact the service center, commercial manager or Cielo E-commerce Web Support.</aside>
 
-<h3 id="forma-pagamento">forma-pagamento</h3>
+<h3 id="payment-method">payment-method</h3>
 
 <table><thead>
 <tr>
@@ -1636,6 +1640,10 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>The request for an authorization is the main operation of Cielo E-commerce, because it&rsquo;s through it, that a sale can be concreted and the sale process can be finished. The authorization has a sequence of configuration that can be customized, besides the functionalities that have value to customer and retailers.</p>
 
+<aside class="notice">For the response codes of the authorization, consult the Directory of Response Codes of Authorization  os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)</aside>
+
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+
 <h2 id="direct-authorization">Direct authorization</h2>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
@@ -1668,8 +1676,8 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <h3 id="traditional">Traditional</h3>
 
 <ul>
-<li><p><strong>Purpose</strong> - Submit a direct transaction using a credit card.</p></li>
-<li><p><strong>Rules</strong></p>
+<li><strong>Purpose</strong> - Submit a direct transaction using a credit card.</li>
+<li><strong>Rules</strong>
 
 <ul>
 <li>The online store register must be enable to send card data.</li>
@@ -1716,6 +1724,8 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <aside class="notice">To know if your store is eligible to use a recurrent authorization, check with our service center or Cielo E-commerce Web Support.</aside>
 
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+
 <h3 id="recurrent-authorization-with-card">Recurrent authorization with card</h3>
 
 <ul>
@@ -1723,7 +1733,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <li><strong>Rules</strong>
 
 <ul>
-<li>Send a TAG <autorizar> with value &ldquo;4&rdquo;.</li>
+<li>Send a TAG &rsquo;<autorizar>&rsquo; with value &ldquo;4&rdquo;.</li>
 <li>Valid just for lump sum.</li>
 </ul></li>
 </ul>
@@ -1768,6 +1778,8 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <aside class="notice">The &ldquo;Renova Fácil&rdquo; (Easy Renew) is only available on recurrent transactions. The Easy Renew effectiveness depends of correct usage of recurrent transactions properly signalized. Consult banks and card issuers participants with Cielo E-commerce Web Support.</aside>
 
 <aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
 <h3 id="authorization-of-a-transaction-previously-created">Authorization of a transaction previously created</h3>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
@@ -2585,6 +2597,8 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <li>Name and technical email (responsible developer) by integration.</li>
 <li>Credential number (at Cielo) of online store.</li>
 <li>Legal name and fictitious name of online store.</li>
+<li>User and password to perform testing purchases.</li>
+<li>URL of store logo on GIF format and size of 112X25 pixels.</li>
 </ul></li>
 </ol>
 
@@ -2596,6 +2610,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <li>Webservice interact: tests with the connection that you use.</li>
 <li>Visual integration: round trip of Cielo flow (an alternative flow must be considered).</li>
 <li>Correct payment modalities: tests with possible combination of payment.</li>
+<li>Payment methods: testing with the possible combination of payment. </li>
 </ul>
 
 <p>At this moment, you have to consider the environment: <a href="https://ecommerce.cielo.com.br/servicos/ecommwsec.do">https://ecommerce.cielo.com.br/servicos/ecommwsec.do</a></p>
@@ -2620,7 +2635,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>Moreover, once requests are attended, at the credential (register) on e-commerce website, must be mentioned the option for reading the card from your own store.</p>
 
-<p>Digital Certificate</p>
+<h2 id="digital-certificate">Digital Certificate</h2>
 
 <p>In some environment is necessary extract the Digital Certificate that the Cielo E-commerce application uses to be installed on TrustStore of customer, specially in Java and PHP environments.</p>
 
@@ -2645,102 +2660,6 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <p>Secure Code Program (Mastercard)</p>
 
 <p>International Program of Mastercard allows the customer authentication at the purchase moment on e-commerce environment. Visit: <a href="http://www.verifiedbyvisa.com.br/">http://www.verifiedbyvisa.com.br/</a> to more information.</p>
-
-<h1 id="appendix">Appendix</h1>
-
-<h2 id="transaction-statuses">Transaction statuses</h2>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Code</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Created transaction</td>
-<td>0</td>
-</tr>
-<tr>
-<td>Transaction in progress</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Authenticated transaction</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Unauthenticated transaction</td>
-<td>3</td>
-</tr>
-<tr>
-<td>Authorized transaction</td>
-<td>4</td>
-</tr>
-<tr>
-<td>Unauthorized transaction</td>
-<td>5</td>
-</tr>
-<tr>
-<td>Transaction captured</td>
-<td>6</td>
-</tr>
-<tr>
-<td>Transaction in authentication</td>
-<td>10</td>
-</tr>
-<tr>
-<td>Transaction in cancellation</td>
-<td>12</td>
-</tr>
-</tbody></table>
-
-<h2 id="eci">ECI</h2>
-
-<table><thead>
-<tr>
-<th>Authentication result</th>
-<th>Visa</th>
-<th>Mastercard</th>
-<th>Aura</th>
-<th>Other</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Holder identified with success.</td>
-<td>5</td>
-<td>2</td>
-<td>n/d</td>
-<td>n/d</td>
-</tr>
-<tr>
-<td>Holder didn&rsquo;t authentication, because the emitter didn&rsquo;t provided authentication mechanisms.</td>
-<td>6</td>
-<td>1</td>
-<td>n/d</td>
-<td>n/d</td>
-</tr>
-<tr>
-<td>Holder doesn&rsquo;t authenticated with success, because of unexpected technical error.</td>
-<td>7</td>
-<td>1</td>
-<td>n/d</td>
-<td>n/d</td>
-</tr>
-<tr>
-<td>Holder doesn&rsquo;t authenticated with success.</td>
-<td>70</td>
-<td>n/d</td>
-<td>n/d</td>
-<td></td>
-</tr>
-<tr>
-<td>The store has chosen authorize without pass for the authentication.</td>
-<td>7</td>
-<td>0</td>
-<td>0</td>
-<td>7</td>
-</tr>
-</tbody></table>
 
             </div>
             <div class="dark-box">
