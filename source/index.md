@@ -5,6 +5,7 @@ language_tabs:
   - xml: XML
 
 toc_footers:
+  - <a href='/Cartoes-e-validacao/'>Boas práticas de E-Commerce</a>
   - <a href='/Webservice-1.5-FAQ'>Perguntas frequentes</a>
   - <a href='/Webservice-1.5-Processamento-em-lote/'>Processamento em lote</a>
 
