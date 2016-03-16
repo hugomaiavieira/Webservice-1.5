@@ -1117,7 +1117,7 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
 
 <aside class="notice">Tendo em vista que a autenticação não depende exclusivamente desta flag, recomendamos sempre verificar o campo <eci> para verificar o resultado da autenticação.</aside>
 
-### Soft Descriptor
+### Permite que o lojista envie um texto (Soft Descriptor)
 
 ```xml
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
