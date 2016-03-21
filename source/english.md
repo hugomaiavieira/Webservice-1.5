@@ -24,7 +24,7 @@ After conclude the registration and receive the instructions, you need to develo
 
 Finally, after the development, to start the operation on production environment, first, it's necessary start the homologation at Cielo.
 
-<aside class="notice">Look at section <a href="#Homologation">Homologation</a> to more instruction about the homologation process</aside>
+<aside class="notice">Look at section <a href="#Homologacao">Homologação</a> to more instruction about the homologation process</aside>
 
 ## Cielo Support
 
