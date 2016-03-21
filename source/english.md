@@ -1079,7 +1079,7 @@ The debit product mandatorily requires an authenticated transaction, otherwise, 
 
 <aside class="notice">Considering that the authentication doesn't depend exclusively of this flag, we recommend that you always verify the field to check the result of authentication.</aside>
 
-### Soft Descriptor
+### Allows the retailer to send a text (Soft Descriptor)
 
 ```xml
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
@@ -1096,7 +1096,6 @@ The debit product mandatorily requires an authenticated transaction, otherwise, 
   <!-- ... -->
 </requisicao-transacao>
 ```
-
 * **Purpose** - Allows the retailer to send a text with until 13 characters that will be printed on holder invoice, next to store identification, respecting the card issuers length:
   * **Visa**: 25 characters
   * **Mastercard**: 11 characters
@@ -1117,7 +1116,6 @@ The debit product mandatorily requires an authenticated transaction, otherwise, 
   <!-- ... -->
 </requisicao-transacao>
 ```
-
 * **Purpose** - The automatic capture allows a request of authorization to be captured immediately after its approval. So it's not necessary realize a `<requisicao-captura>`.
 * **Rules**
   * Just approved authorizations can be captured automatically.
