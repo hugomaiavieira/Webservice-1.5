@@ -108,7 +108,7 @@ Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo n
 
 * [Certificado Raiz](./attachment/Raiz.crt)
 * [Certificado Intermediária](./attachment/Intermediaria.crt)
-* [Certificado E-Commerce Cielo](./attachment/eCommerce.cielo.com.br.crt)
+* [Certificado E-Commerce Cielo](./attachment/ecommerce.cielo.com.br.crt)
 
 <aside class="notice">Caso seu servidor seja uma distribuição Linux e você tenha familiaridade e acesso ssh, então o <a href="./attachment/cielo.sh">Instalador Linux - cielo.sh</a> poderá ajudá-lo com a instalação. <strong>Apenas utilize o instalador se você souber o que está fazendo</strong>. Na dúvida, entre em contato com o suporte do fornecedor do seu servidor.</aside>
 
@@ -130,7 +130,7 @@ Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, p
 
 * [Certificado Raiz](./attachment/Raiz.crt)
 * [Certificado Intermediária](./attachment/Intermediaria.crt)
-* [Certificado E-Commerce Cielo](./attachment/eCommerce.cielo.com.br.crt)
+* [Certificado E-Commerce Cielo](./attachment/ecommerce.cielo.com.br.crt)
 
 #### 2o Passo:
 
@@ -174,7 +174,7 @@ No Firefox “Aba Servidores ”, clique em “Importar”
 
 #### 5o Passo:
 
-No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “eCommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.
+No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “ecommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.
 
 ![Instalar IE e GC](./images/certificado-instalar-ie-gc-5.jpg)
 
