@@ -537,10 +537,6 @@ Os pré-requisitos para que uma transação seja autenticada estão relacionados
 * O BIN do cartão deve ser participante do programa de autenticação;
 * A configuração da <requisicao-transacao>//<autorizar> deve ser 0, 1 ou 2.
 
-Observando o diagrama do item “2.4 Transação”, é possível observar que todas as transações
-passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó
-<autenticacao> no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:
-
 Observando o diagrama da seção [Transação](#transação), é possível observar que todas as transações passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó `<autenticacao>` no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:
 
 ```xml
