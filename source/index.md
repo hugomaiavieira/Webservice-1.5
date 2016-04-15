@@ -537,29 +537,6 @@ Os pré-requisitos para que uma transação seja autenticada estão relacionados
 * O BIN do cartão deve ser participante do programa de autenticação;
 * A configuração da <requisicao-transacao>//<autorizar> deve ser 0, 1 ou 2.
 
-
-Quando há autenticação, o fluxo de execução da autorização acaba sendo feito em duas etapas, conforme mostrado no diagrama abaixo:
-
-![fluxo-autorizacao](/images/fluxo-autorizacao.png)
-
-1. fecharPedido() – acontece quando o portador do cartão finaliza o pedido e dá início ao pagamento da compra
-  1. criarTransacao(autenticada) – o sistema do lojista envia uma requisição XML <requisicao-transacao> solicitando uma transação autenticada, ou seja, a TAG <autorizar> será 0, 1 ou 2. Em seguida, a Cielo informará no XML de retorno o campo <url-autenticacao> com o endereço que o portador deverá ser redirecionado.
-  2. acessar(url-atenticacao) – o browser do portador é redirecionado ao ambiente da Cielo. Assim que a página da Cielo é acessada, automaticamente ela já é direcionada para o banco emissor (3.1). Esse redirect é tão rápido que é praticamente imperceptível.
-  3. autenticar(token, cpf) – o portador estará no ambiente do banco e utilizará algum mecanismo provido pelo próprio emissor para realizar a autenticação da transação (geralmente token, cartão de bingo, cpf, assinatura eletrônica, etc).
-    1. resultadoAutenticacao() – o banco emissor redireciona o fluxo para a Cielo com o resultado da autenticação. A partir daí, o fluxo volta ao normal, conforme disposto no item “2.3 Arquitetura de integração”.
-      1. processar() – o sistema da Cielo processa o retorno da autenticação e submete á autorização e, opcionalmente, à captura automática.
-      2. enviarRedirect(url-retorno) – o sistema da Cielo envia um redirect ao browser do cliente para o endereço especificado na URL de retorno, fornecida na primeira requisição (`<requisicao-transacao>`)
-    2. acessar(url-retorno) – o browser do portador acessar a URL no ambiente da loja, onde recomendamos que exista uma requisição de consulta via TID ao Web Service da Cielo.
-
-### Observações:
-
-* Somente o primeiro redirecionamento (1.2: enviarRedirect()) é de responsabilidade da loja virtual.
-* O comprador é redirecionado ao site do Banco Emissor somente se a autenticação estiver disponível. Caso contrário, a transação prosseguirá à autorização automaticamente (exceto se foi apenas solicitada autenticação).
-
-Observando o diagrama do item “2.4 Transação”, é possível observar que todas as transações
-passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó
-<autenticacao> no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:
-
 Observando o diagrama da seção [Transação](#transação), é possível observar que todas as transações passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó `<autenticacao>` no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:
 
 ```xml
