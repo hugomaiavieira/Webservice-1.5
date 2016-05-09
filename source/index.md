@@ -333,7 +333,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 </requisicao-transacao>
 ```
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/eCommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ### raiz
 
@@ -428,7 +428,7 @@ O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo 
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<transacao versao="1.3.0" id="af32f93c-5e9c-4f44-9478-ccc5aca9319e" xmlns="http://eCommerce.cbmp.com.br">
+<transacao versao="1.3.0" id="af32f93c-5e9c-4f44-9478-ccc5aca9319e" xmlns="http://ecommerce.cbmp.com.br">
     <tid>100699306908642F1001</tid>
     <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
     <dados-pedido>
@@ -485,9 +485,9 @@ Por fim, há outro tipo de retorno que é empregado toda vez que uma requisiçã
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<erro xmlns="http://eCommerce.cbmp.com.br">
+<erro xmlns="http://ecommerce.cbmp.com.br">
   <codigo>001</codigo>
-  <mensagem><![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://eCommerce.cbmp. com.br: '<xml-fragment/>]]>
+  <mensagem><![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://ecommerce.cbmp. com.br: '<xml-fragment/>]]>
   </mensagem>
 </erro>
 ```
@@ -541,7 +541,7 @@ Observando o diagrama da seção [Transação](#transação), é possível obser
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<transacao versao="1.3.0" id="5e445904-963e-4fa1-95cd-55ef88c289cc" xmlns="http://eCommerce.cbmp.com.br">
+<transacao versao="1.3.0" id="5e445904-963e-4fa1-95cd-55ef88c289cc" xmlns="http://ecommerce.cbmp.com.br">
     <tid>10069930690864281001</tid>
     <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
     <dados-pedido>
@@ -727,7 +727,7 @@ A requisição de autorização é a principal operação do Cielo eCommerce, po
 
 <aside class="notice">Para os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/eCommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ## Autorização Direta
 
@@ -805,7 +805,7 @@ A autorização recorrente pode ser feita de duas formas: através do envio de u
 
 <aside class="notice">Para saber se sua loja é elegível a utilizar a autorização recorrente, consulte nossa central de relacionamento ou o Suporte Web Cielo eCommerce.</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/eCommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ### Autorização recorrente com Cartão
 
@@ -818,7 +818,7 @@ A autorização recorrente pode ser feita de duas formas: através do envio de u
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<transacao xmlns="http://eCommerce.cbmp.com.br" versao="1.2.1" id="d35b67189442">
+<transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="d35b67189442">
   <tid>10069930690362461001</tid>
   <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
   <dados-pedido>
@@ -853,7 +853,7 @@ Essa funcionalidade facilita a identificação de um cartão que tenha sido subs
 
 <aside class="notice">O Renova Fácil só está disponível para transações recorrentes. A efetividade do Renova Fácil depende do uso correto das transações recorrentes devidamente sinalizadas como tal. Consulte os bancos e bandeiras participantes com o Suporte Web Cielo eCommerce.</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/eCommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ### Autorização de uma transação previamente gerada
 
@@ -874,7 +874,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <aside class="notice">Requisições para transações que não foram submetidas ao processo de autenticação ou foram interrompidas, pois o portador errou a senha não serão aceitas.</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/eCommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
 |--------|----|-----------|-------|---------|
@@ -922,7 +922,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<retorno-token xmlns="http://eCommerce.cbmp.com.br" versao="1.2.1" id="57239017">
+<retorno-token xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="57239017">
   <token>
     <dados-token>
       <codigo-token>TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=</codigo-token>
@@ -1010,7 +1010,7 @@ O retorno será do tipo <retorno-token> quando a solicitação tenha sido conclu
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<transacao xmlns="http://eCommerce.cbmp.com.br" versao="1.2.1" id="d35b67189442">
+<transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="d35b67189442">
   <tid>10069930690362461001</tid>
   <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
   <dados-pedido>
@@ -1262,7 +1262,7 @@ Já no segundo caso, é preciso fazer uma “captura posterior”, através de u
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<transacao xmlns="http://eCommerce.cbmp.com.br" versao="1.2.1" id="0378c8cf4d">
+<transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="0378c8cf4d">
   <tid>10069930690360EF1001</tid>
   <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
   <!-- ... -->
@@ -1330,7 +1330,7 @@ O cancelamento é utilizado quando o lojista decide não efetivar um pedido de c
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<transacao xmlns="http://eCommerce.cbmp.com.br" versao="1.2.1" id="2c18f00a-3ff6-4c85-8865-a4fde599b2b2">
+<transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="2c18f00a-3ff6-4c85-8865-a4fde599b2b2">
   <tid>100699306903613E1001</tid>
   <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
   <!-- ... -->
@@ -1410,7 +1410,7 @@ Em resposta, a Cielo retornará uma chave válida no ambiente de produção. Log
 * Aplicação correta da marca da bandeira.
 * Modalidades de pagamento: testes com as combinações possíveis de pagamento.
 
-Neste momento, deve-se considerar o ambiente: [https://eCommerce.cielo.com.br/servicos/ecommwsec.do](https://eCommerce.cielo.com.br/servicos/ecommwsec.do)
+Neste momento, deve-se considerar o ambiente: [https://ecommerce.cielo.com.br/servicos/ecommwsec.do](https://ecommerce.cielo.com.br/servicos/ecommwsec.do)
 
 <aside class="notice">A integração da loja virtual deverá ser feita sempre através da URL acima e não por IP.</aside>
 
@@ -1434,7 +1434,7 @@ Ademais, atendidos os requisitos, no momento do credenciamento eCommerce deve se
 
 Em alguns ambientes é preciso extrair o Certificado Digital que a aplicação do Cielo eCommerce utiliza para ser instalado na Trustedstore do cliente, especialmente em ambientes Java e PHP.
 
-Para obter o certificado, abra um browser e acesse [http://eCommerce.cielo.com.br](http://eCommerce.cielo.com.br) e clique no ícone que exibe as informações sobre o certificado:
+Para obter o certificado, abra um browser e acesse [http://ecommerce.cielo.com.br](http://ecommerce.cielo.com.br) e clique no ícone que exibe as informações sobre o certificado:
 
 **Google Chrome**:
 
