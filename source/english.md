@@ -422,7 +422,7 @@ The next example shows the more reduced way of a message of return such <transac
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="6-e7762cbf8856">
+<transaction version="1.3.0" id="af32f93c-5e9c-4f44-9478-ccc5aca9319e" xmlns="http://ecommerce.cbmp.com.br">
   <tid>10017348980735271001</tid>
   <dados-pedido>
     <numero>1130006436</numero>
@@ -464,7 +464,7 @@ Finally, there is another type of return which is employed every time a request 
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <erro xmlns="http://ecommerce.cbmp.com.br">
   <codigo>001</codigo>
-  <mensagem><![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://ecommerce.cbmp. com.br: '<xml-fragment/>]]>
+  <messagem><![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://ecommerce.cbmp. com.br: '<xml-fragment/>]]>
   </mensagem>
 </erro>
 ```
@@ -542,7 +542,7 @@ Looking at the diagram of section [Transaction](# transaction), you can see that
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="add7d51e-f7a1-41b1-b224-4ffbd724730c">
+<transacao versao="1.3.0" id="5e445904-963e-4fa1-95cd-55ef88c289cc" xmlns="http://ecommerce.cbmp.com.br">
   <tid>1001734898073E931001</tid>
   <pan>IqVz7P9zaIgTYdU41HaW/OB/d7Idwttqwb2vaTt8MT0=</pan>
   <dados-pedido>
@@ -712,7 +712,7 @@ The request for an authorization is the main operation of Cielo E-commerce, beca
 
 <aside class="notice">For the response codes of the authorization, consult the Directory of Response Codes of Authorization  os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)</aside>
 
-<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ## Direct authorization
 
@@ -790,7 +790,7 @@ The recurrent authorization must be done in two ways: sending a token previously
 
 <aside class="notice">To know if your store is eligible to use a recurrent authorization, check with our service center or Cielo E-commerce Web Support.</aside>
 
-<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ### Recurrent authorization with card
 
@@ -840,7 +840,7 @@ This functionality makes easier to identify a card which has been replaced for a
 
 <aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
-<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ### Authorization of a transaction previously created
 
@@ -859,7 +859,7 @@ To the establishments that use the authentication process of authentication it's
 
 <aside class="notice">Requests to transactions that weren't submit to the authentication process or have been interrupted, because the holder made a mistake on the password won't be accepted.</aside>
 
-<aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 |Element|Type|Mandatory|Size|Description|
 |--------|----|-----------|-------|---------|
@@ -1418,7 +1418,7 @@ Moreover, once requests are attended, at the credential (register) on e-commerce
 
 In some environment is necessary extract the Digital Certificate that the Cielo E-commerce application uses to be installed on TrustStore of customer, specially in Java and PHP environments.
 
-o obtain the certificate, please, open a browser and access:  [http://ecommerce.cielo.com.br](http://ecommerce.cielo.com.br); click on the icon that displays the information about the certificate:
+o obtain the certificate, please, open a browser and access: [http://ecommerce.cielo.com.br](http://ecommerce.cielo.com.br); click on the icon that displays the information about the certificate:
 
 **Google Chrome**:
 
