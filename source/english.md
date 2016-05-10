@@ -516,28 +516,6 @@ The prerequisites for a transaction to be certified are listed below:
 * The BIN card must be participant in authentication program;
 * Setting the // <allow> is 0, 1 or 2.
 
-When there is authentication, the flux to execute an authorization happens in two steps, according to the diagram below:
-
-![fluxo-autorizacao](/images/fluxo-autorizacao.png)
-
-1. finishOrder() - it happens when a cardholder finishes the order and starts the payment purchase.
-1. createTransaction (authenticated) - the retailer system send a XML request `<requisicao-transacao>` requesting an authenticated transaction, in other words, the TAG <autorizar> will be 0,1 or 2. After this, Cielo will inform at XML returned a field <url-autenticacao> with the address which the holder must be redirected for.
-2. access (url-authentication) - the holder's browser is redirected to Cielo environment. Thereby, the Cielo's page is accessed, it automatically is directed to an issuer bank (3.1). This redirect is so fast that is practically imperceptible.
-3. authenticate (token, cpf) - the holder will be on bank environment and will use some mechanism provided by his/her own issuer to realize the authentication of the transaction (generally token, "bingo card"/security card, cpf, electronic sign, etc).
- 1. resultAuthentication ()- the issuer bank redirects the flux to Cielo with the result of authentication. Then, the flux backs to normal, according to item "2.3 Architecture of integration".
-1. process () - Cielo system process the return of authentication and submit to authorization and, optionally, to automatic capture.
-2. sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (`<requisicao-transacao>`)
-        1. access (url-return) - the holder's browser access the URL on store environment, where we recommend that you have a consult request via TID to Cielo Web Service.
-
-### Notes:
-
-* Only on first redirection (1.2: send Redirect()) is Online Store responsability.
-* The buyer is redirected on bank issuer only if the authentication is available. Otherwise, the transaction will progress to authorization automatically (excepting if the authentication has been just requested).
-
-Taking the picture of the item “2.4 Transaction” you can see that all the transactions will pass for “Autenticated” or “not authenticated” status.
-
-Consequently all transactions will receive the the node <authenticacao> in the merchant response XML. Below the XML with the authentication node:
-
 Looking at the diagram of section [Transaction](# transaction), you can see that all transactions will pass through status "Authenticated" or "not authenticated". Consequently, all receive the node `<autenticacao>` in the merchant response XML. Below the XML with the authentication node:
 
 ```xml
