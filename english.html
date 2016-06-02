@@ -794,7 +794,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>The next example shows the more reduced way of a message of return such <transaction>. Basically, it&rsquo;s composed by order data and data from transaction&rsquo;s configuration.</p>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"6-e7762cbf8856"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;transaction</span> <span class="na">version=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"af32f93c-5e9c-4f44-9478-ccc5aca9319e"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>10017348980735271001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;dados-pedido&gt;</span>
     <span class="nt">&lt;numero&gt;</span>1130006436<span class="nt">&lt;/numero&gt;</span>
@@ -868,7 +868,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;erro</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;codigo&gt;</span>001<span class="nt">&lt;/codigo&gt;</span>
-  <span class="nt">&lt;mensagem&gt;</span><span class="cp">&lt;![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://ecommerce.cbmp. com.br: '&lt;xml-fragment/&gt;]]&gt;</span>
+  <span class="nt">&lt;messagem&gt;</span><span class="cp">&lt;![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://ecommerce.cbmp. com.br: '&lt;xml-fragment/&gt;]]&gt;</span>
   <span class="nt">&lt;/mensagem&gt;</span>
 <span class="nt">&lt;/erro&gt;</span>
 </code></pre>
@@ -937,38 +937,9 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <li>Setting the // <allow> is 0, 1 or 2.</li>
 </ul>
 
-<p>When there is authentication, the flux to execute an authorization happens in two steps, according to the diagram below:</p>
-
-<p><img alt="fluxo-autorizacao" src="images/fluxo-autorizacao.png" /></p>
-
-<ol>
-<li>finishOrder() - it happens when a cardholder finishes the order and starts the payment purchase.</li>
-<li>createTransaction (authenticated) - the retailer system send a XML request <code class="prettyprint">&lt;requisicao-transacao&gt;</code> requesting an authenticated transaction, in other words, the TAG <autorizar> will be 0,1 or 2. After this, Cielo will inform at XML returned a field <url-autenticacao> with the address which the holder must be redirected for.</li>
-<li>access (url-authentication) - the holder&rsquo;s browser is redirected to Cielo environment. Thereby, the Cielo&rsquo;s page is accessed, it automatically is directed to an issuer bank (3.1). This redirect is so fast that is practically imperceptible.</li>
-<li>authenticate (token, cpf) - the holder will be on bank environment and will use some mechanism provided by his/her own issuer to realize the authentication of the transaction (generally token, &ldquo;bingo card&rdquo;/security card, cpf, electronic sign, etc).
-
-<ol>
-<li>resultAuthentication ()- the issuer bank redirects the flux to Cielo with the result of authentication. Then, the flux backs to normal, according to item &ldquo;2.3 Architecture of integration&rdquo;.</li>
-</ol></li>
-<li>process () - Cielo system process the return of authentication and submit to authorization and, optionally, to automatic capture.</li>
-<li>sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (<code class="prettyprint">&lt;requisicao-transacao&gt;</code>)
-    1. access (url-return) - the holder&rsquo;s browser access the URL on store environment, where we recommend that you have a consult request via TID to Cielo Web Service.</li>
-</ol>
-
-<h3 id="notes:">Notes:</h3>
-
-<ul>
-<li>Only on first redirection (1.2: send Redirect()) is Online Store responsability.</li>
-<li>The buyer is redirected on bank issuer only if the authentication is available. Otherwise, the transaction will progress to authorization automatically (excepting if the authentication has been just requested).</li>
-</ul>
-
-<p>Taking the picture of the item “2.4 Transaction” you can see that all the transactions will pass for “Autenticated” or “not authenticated” status.</p>
-
-<p>Consequently all transactions will receive the the node <authenticacao> in the merchant response XML. Below the XML with the authentication node:</p>
-
 <p>Looking at the diagram of section <a href="# transaction">Transaction</a>, you can see that all transactions will pass through status &ldquo;Authenticated&rdquo; or &ldquo;not authenticated&rdquo;. Consequently, all receive the node <code class="prettyprint">&lt;autenticacao&gt;</code> in the merchant response XML. Below the XML with the authentication node:</p>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"add7d51e-f7a1-41b1-b224-4ffbd724730c"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"5e445904-963e-4fa1-95cd-55ef88c289cc"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>1001734898073E931001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;pan&gt;</span>IqVz7P9zaIgTYdU41HaW/OB/d7Idwttqwb2vaTt8MT0=<span class="nt">&lt;/pan&gt;</span>
   <span class="nt">&lt;dados-pedido&gt;</span>
@@ -1644,7 +1615,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <aside class="notice">For the response codes of the authorization, consult the Directory of Response Codes of Authorization  os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)</aside>
 
-<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 <h2 id="direct-authorization">Direct authorization</h2>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
@@ -1726,7 +1697,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <aside class="notice">To know if your store is eligible to use a recurrent authorization, check with our service center or Cielo E-commerce Web Support.</aside>
 
-<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 <h3 id="recurrent-authorization-with-card">Recurrent authorization with card</h3>
 
@@ -1781,7 +1752,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
-<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 <h3 id="authorization-of-a-transaction-previously-created">Authorization of a transaction previously created</h3>
 <pre><code class="highlight xml"><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
@@ -1798,7 +1769,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <aside class="notice">Requests to transactions that weren&rsquo;t submit to the authentication process or have been interrupted, because the holder made a mistake on the password won&rsquo;t be accepted.</aside>
 
-<aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 <table><thead>
 <tr>
@@ -2641,7 +2612,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>In some environment is necessary extract the Digital Certificate that the Cielo E-commerce application uses to be installed on TrustStore of customer, specially in Java and PHP environments.</p>
 
-<p>o obtain the certificate, please, open a browser and access:  <a href="http://ecommerce.cielo.com.br">http://ecommerce.cielo.com.br</a>; click on the icon that displays the information about the certificate:</p>
+<p>o obtain the certificate, please, open a browser and access: <a href="http://ecommerce.cielo.com.br">http://ecommerce.cielo.com.br</a>; click on the icon that displays the information about the certificate:</p>
 
 <p><strong>Google Chrome</strong>:</p>
 
