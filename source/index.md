@@ -327,6 +327,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
       <numero>123</numero>
       <bairro>Vila AVS</bairro>
       <cep>12345-123</cep>
+      <cpf>11111111111</cpf>
     </dados-avs>
   ]]>
   </avs>
@@ -1208,8 +1209,10 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
     * I – Indisponível;
     * T – Temporariamente indisponível;
     * X – Serviço não suportado para esta Bandeira.
+    * E - Dados enviados incorretos. Verificar se todos os campos foram enviados
   * O nó contendo o XML do AVS deve estar encapsulado pelo termo “CDATA”, para evitar problemas com o parser da requisição.
   * É necessário que todos os campos contidos no nó AVS sejam preenchidos.
+  * Quando o campo não for aplicável (exemplo: complemento), a tag deve ser enviada preenchia com NULL ou N/A
   * Necessário habilitar a opção do AVS no cadastro. Para habilitar a opção AVS no cadastro ou consultar os bancos participantes, entre em contato com o Suporte Web Cielo eCommerce.
 
 <aside class="warning">Conforme contrato, este serviço adicional está sujeito a cobrança a partir do momento em que a consulta de AVS for solicitada. Para maiores informações, favor entrar em contato com a central de atendimento, seu gerente de contas ou o Suporte Web Cielo eCommerce.</aside>
