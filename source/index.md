@@ -1189,6 +1189,7 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
         <numero>123</numero>
         <bairro>Vila AVS</bairro>
         <cep>12345-123</cep>
+        <dados-avs>11111111111</dados-avs>
       </dados-avs>
 	]]>
     </avs>
