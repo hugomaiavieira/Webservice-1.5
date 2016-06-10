@@ -482,6 +482,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <span class="nt">&lt;numero&gt;</span>123<span class="nt">&lt;/numero&gt;</span>
       <span class="nt">&lt;bairro&gt;</span>Vila AVS<span class="nt">&lt;/bairro&gt;</span>
       <span class="nt">&lt;cep&gt;</span>12345-123<span class="nt">&lt;/cep&gt;</span>
+      <span class="nt">&lt;cpf&gt;</span>11111111111<span class="nt">&lt;/cpf&gt;</span>
     <span class="nt">&lt;/dados-avs&gt;</span>
   ]]&gt;
   <span class="nt">&lt;/avs&gt;</span>
@@ -2231,6 +2232,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
         <span class="nt">&lt;numero&gt;</span>123<span class="nt">&lt;/numero&gt;</span>
         <span class="nt">&lt;bairro&gt;</span>Vila AVS<span class="nt">&lt;/bairro&gt;</span>
         <span class="nt">&lt;cep&gt;</span>12345-123<span class="nt">&lt;/cep&gt;</span>
+        <span class="nt">&lt;dados-avs&gt;</span>11111111111<span class="nt">&lt;/dados-avs&gt;</span>
       <span class="nt">&lt;/dados-avs&gt;</span>
     ]]&gt;
     <span class="nt">&lt;/avs&gt;</span>
@@ -2257,8 +2259,10 @@ das transações que pararam após a execução deste processo. A mensagem para 
 <li>I – Indisponível;</li>
 <li>T – Temporariamente indisponível;</li>
 <li>X – Serviço não suportado para esta Bandeira.</li>
+<li>E - Dados enviados incorretos. Verificar se todos os campos foram enviados</li>
 <li>O nó contendo o XML do AVS deve estar encapsulado pelo termo “CDATA”, para evitar problemas com o parser da requisição.</li>
 <li>É necessário que todos os campos contidos no nó AVS sejam preenchidos.</li>
+<li>Quando o campo não for aplicável (exemplo: complemento), a tag deve ser enviada preenchia com NULL ou N/A</li>
 <li>Necessário habilitar a opção do AVS no cadastro. Para habilitar a opção AVS no cadastro ou consultar os bancos participantes, entre em contato com o Suporte Web Cielo eCommerce.</li>
 </ul></li>
 </ul>

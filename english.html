@@ -480,6 +480,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <span class="nt">&lt;numero&gt;</span>123<span class="nt">&lt;/numero&gt;</span>
       <span class="nt">&lt;bairro&gt;</span>Vila AVS<span class="nt">&lt;/bairro&gt;</span>
       <span class="nt">&lt;cep&gt;</span>12345-123<span class="nt">&lt;/cep&gt;</span>
+      <span class="nt">&lt;cpf&gt;</span>11111111111<span class="nt">&lt;/cpf&gt;</span>
     <span class="nt">&lt;/dados-avs&gt;</span>
   ]]&gt;
   <span class="nt">&lt;/avs&gt;</span>
@@ -2201,6 +2202,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
         <span class="nt">&lt;numero&gt;</span>123<span class="nt">&lt;/numero&gt;</span>
         <span class="nt">&lt;bairro&gt;</span>Vila AVS<span class="nt">&lt;/bairro&gt;</span>
         <span class="nt">&lt;cep&gt;</span>12345-123<span class="nt">&lt;/cep&gt;</span>
+        <span class="nt">&lt;cpf&gt;</span>11111111111<span class="nt">&lt;/cpf&gt;</span>
       <span class="nt">&lt;/dados-avs&gt;</span>
     ]]&gt;
     <span class="nt">&lt;/avs&gt;</span>
@@ -2227,8 +2229,10 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <li>U - unavailable</li>
 <li>T - Temporarily unavailable</li>
 <li>X - Service doesn’t supported by this card issuer</li>
+<li>E - There are some error on data sent. Check if all fields were sent.</li>
 <li>The node containing the XML of AVS must be encapsulated by &ldquo;CDATA&rdquo; term, to avoid problems with the parter of request.</li>
 <li>All fields contained AVS node must be filled.</li>
+<li>When some field is not relevant, the tag must be sent with NULL or N/A.</li>
 <li>It&rsquo;s necessary enable the option AVS on the register. To enable an option AVS on the register or consult the participant banks please, contact Cielo E-commerce Web Support..</li>
 </ul></li>
 </ul>
