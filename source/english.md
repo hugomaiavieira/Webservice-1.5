@@ -323,6 +323,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
       <numero>123</numero>
       <bairro>Vila AVS</bairro>
       <cep>12345-123</cep>
+      <cpf>11111111111</cpf>
     </dados-avs>
   ]]>
   </avs>
@@ -1149,6 +1150,7 @@ The debit product mandatorily requires an authenticated transaction, otherwise, 
         <numero>123</numero>
         <bairro>Vila AVS</bairro>
         <cep>12345-123</cep>
+        <cpf>11111111111</cpf>
       </dados-avs>
 	]]>
     </avs>
@@ -1169,8 +1171,10 @@ The debit product mandatorily requires an authenticated transaction, otherwise, 
     * U - unavailable
     * T - Temporarily unavailable
     * X - Service doesn’t supported by this card issuer
+    * E - There are some error on data sent. Check if all fields were sent.
   * The node containing the XML of AVS must be encapsulated by "CDATA" term, to avoid problems with the parter of request.
   * All fields contained AVS node must be filled.
+  * When some field is not relevant, the tag must be sent with NULL or N/A.
   * It's necessary enable the option AVS on the register. To enable an option AVS on the register or consult the participant banks please, contact Cielo E-commerce Web Support..
 
 <aside class="warning">According contract, this additional service is subjected to charge from the moment of the request for consulting AVS. For more information, please, contact our service center, commercial manager or Cielo E-commerce Web Support.</aside>
