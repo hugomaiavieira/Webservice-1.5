@@ -2411,7 +2411,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 <li>O cancelamento total, quando realizado com sucesso, altera o status da transação para “9 – Cancelada”, enquanto que o parcial não altera o status da transação, mantendo-a como “6 – Capturada”.</li>
 <li>Em caso de cancelamento na versão 1.6.1 (esta versão é exclusiva para cancelamento), o status de cancelamento parcial será diferente, ou seja: se cancelado com sucesso, retorna status 9; caso ocorra um erro no cancelamento parcial, o código de status será 6. Estas regras aplicam-se apenas para o cancelamento parcial.</li>
 <li>Caso a TAG <code class="prettyprint">&lt;valor&gt;</code> não seja fornecida, o sistema assumirá um cancelamento total.</li>
-<li>Para bandeira AMEX está disponível apenas o cancelamento total.</li>
+<li>O cancelamento parcial está disponível para todas as bandeiras suportadas no e-Commerce.</li>
 <li>Para a modalidade débito, não existe a possibilidade de efetuar cancelamento parcial.</li>
 <li><strong>Transações com Taxa de embarque:</strong></li>
 <li>Transações capturadas com o mesmo valor da autorização (ou seja, captura total) possuem o mesmo tratamento para cancelamentos parciais e totais, pois o valor da taxa de embarque é cancelado integralmente.</li>
