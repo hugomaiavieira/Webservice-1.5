@@ -1450,9 +1450,6 @@ seguintes informações, que irão completar o cadastro:
   * Número de credenciamento (junto à Cielo) da loja virtual.
   * Razão social e nome fantasia da loja virtual.
   * Um usuário e senha na loja virtual para efetuar compras de testes.
-  * URL do logotipo da loja no formato GIF e tamanho de 112X25 pixels.
-
-<aside class="notice">A imagem do logotipo deve estar hospedada em ambiente seguro (HTTPS), caso contrário o consumidor receberá notificações de segurança que podem culminar no abandono da compra.</aside>
 
 Em resposta, a Cielo retornará uma chave válida no ambiente de produção. Logo, a loja está habilitada a realizar seus testes nesse ambiente. Inicia-se a segunda etapa. É importante que testes sejam realizados para cobrir os seguintes tópicos:
 
